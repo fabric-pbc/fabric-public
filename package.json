@@ -2,8 +2,10 @@
   "name": "@fabric-pbc/fabric-public",
   "version": "0.1.0",
   "description": "Public packages for the Fabric platform",
-  "main": "index.js",
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabric-pbc/fabric-public.git"
@@ -27,6 +29,8 @@
   ],
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
-    "typescript": "^5.3.3"
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^7.0.2"
   }
 }

@@ -2,6 +2,7 @@
   "name": "@fabric-pbc/fabric-async",
   "version": "0.1.0",
   "description": "Async messages emitted by the Fabric platform",
+  "type": "module",
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c",

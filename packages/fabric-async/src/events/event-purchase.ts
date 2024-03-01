@@ -3,12 +3,14 @@ import {
 } from "../activity"
 
 import {
-  BaseSessionEvent,
+  BaseEvent,
+  ContextSession,
   EventName,
   PurchaseOperation,
 } from "../base"
 
-export interface EventPurchase extends BaseSessionEvent<
+export interface EventPurchase extends BaseEvent<
   EventName<"purchase", PurchaseOperation>,
+  ContextSession,
   Purchase
 > {}

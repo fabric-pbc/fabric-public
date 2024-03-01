@@ -1,14 +1,16 @@
 import {
-  BaseSessionEvent,
+  BaseEvent,
+  ContextSession,
   EventName,
-  RecordOperation,
+  RewardOperation,
 } from "../base"
 
 import {
   Reward,
 } from "../activity"
 
-export interface EventReward extends BaseSessionEvent<
-  EventName<"reward", RecordOperation>,
+export interface EventReward extends BaseEvent<
+  EventName<"reward", RewardOperation>,
+  ContextSession,
   Reward
 > {}

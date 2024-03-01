@@ -8,6 +8,8 @@ import {
   EventPurchase,
   EventReward,
   EventSession,
+  EventInteractionOutcome,
+  EventInteractionChoice,
 } from './events'
 
 import {
@@ -26,10 +28,74 @@ describe("events", () => {
   const spaceId = "space-007"
   const orgId = "org-888"
   const productId = "products-567"
+  const journeyId = "journey-abc"
+  const fabId = "fab-def"
+  const questionId = "questions-x"
+  const selectedOptionId = "options-y"
   const location: LocationInfo = {
     lat: 40.760833,
     lng: -111.891111,
   }
+
+  describe("interaction", () => {
+    describe("outcome", () => {
+      test("assigned", () => {
+        const event: EventInteractionOutcome = {
+          event: "outcome.assigned",
+          context: {
+            timestamp: timestamp,
+            location: location,
+            sessionId: sessionId,
+            journeyId: journeyId,
+            spaceId: spaceId,
+            orgId: orgId,
+            idp: {
+              idpId: idpId,
+              userId: userId,
+            },
+          },
+          object: {
+            id: "outcome-001",
+            type: "outcome",
+            assignedId: "prize-123",
+            fabId,
+            revealed: false,
+            claimed: false,
+          }
+        }
+        logEvent("interaction", "outcome", "assigned", event)
+      })
+    })
+
+    describe("choice", () => {
+      test("saved", () => {
+        const event: EventInteractionChoice = {
+          event: "choice.saved",
+          context: {
+            timestamp: timestamp,
+            location: location,
+            sessionId: sessionId,
+            journeyId: journeyId,
+            spaceId: spaceId,
+            orgId: orgId,
+            idp: {
+              idpId: idpId,
+              userId: userId,
+            },
+          },
+          object: {
+            id: "outcome-001",
+            type: "choice",
+            questionId: questionId,
+            selectedOptionId: selectedOptionId,
+            fabId: fabId,
+          }
+        }
+        logEvent("interaction", "choice", "assigned", event)
+      })
+    })
+
+  })
 
   describe("purchase", () => {
 
@@ -38,14 +104,16 @@ describe("events", () => {
       test("payment_completed", () => {
         const event: EventPurchase = {
           event: "purchase.payment_completed",
-          timestamp: timestamp,
-          location: location,
-          sessionId: sessionId,
-          spaceId: spaceId,
-          orgId: orgId,
-          idp: {
-            idpId: idpId,
-            userId: userId,
+          context: {
+            timestamp: timestamp,
+            location: location,
+            sessionId: sessionId,
+            spaceId: spaceId,
+            orgId: orgId,
+            idp: {
+              idpId: idpId,
+              userId: userId,
+            },
           },
           object: {
             id: "purchase-001",
@@ -68,14 +136,16 @@ describe("events", () => {
       test("payment_completed", () => {
         const event: EventPurchase = {
           event: "purchase.payment_completed",
-          timestamp: timestamp,
-          location: location,
-          sessionId: sessionId,
-          spaceId: spaceId,
-          orgId: orgId,
-          idp: {
-            idpId: idpId,
-            userId: userId,
+          context: {
+            timestamp: timestamp,
+            location: location,
+            sessionId: sessionId,
+            spaceId: spaceId,
+            orgId: orgId,
+            idp: {
+              idpId: idpId,
+              userId: userId,
+            },
           },
           object: {
             id: "purchase-002",
@@ -101,17 +171,19 @@ describe("events", () => {
 
     describe("badge", () => {
 
-      test("created", () => {
+      test("provisioned", () => {
         const event: EventReward = {
-          event: "reward.created",
-          timestamp: timestamp,
-          location: location,
-          sessionId: sessionId,
-          spaceId: spaceId,
-          orgId: orgId,
-          idp: {
-            idpId: idpId,
-            userId: userId,
+          event: "reward.provisioned",
+          context: {
+            timestamp: timestamp,
+            location: location,
+            sessionId: sessionId,
+            spaceId: spaceId,
+            orgId: orgId,
+            idp: {
+              idpId: idpId,
+              userId: userId,
+            },
           },
           object: {
             id: "reward-001",
@@ -120,7 +192,7 @@ describe("events", () => {
             badgeId: badgeId,
           },
         }
-        logEvent("reward", "badge", "created", event)
+        logEvent("reward", "badge", "provisioned", event)
       })
 
     })
@@ -130,17 +202,19 @@ describe("events", () => {
       const priorBalance = 50
       const priorExperience = 100
 
-      test("created", () => {
+      test("provisioned", () => {
         const event: EventReward = {
-          event: "reward.created",
-          timestamp: timestamp,
-          location: location,
-          sessionId: sessionId,
-          spaceId: spaceId,
-          orgId: orgId,
-          idp: {
-            idpId: idpId,
-            userId: userId,
+          event: "reward.provisioned",
+          context: {
+            timestamp: timestamp,
+            location: location,
+            sessionId: sessionId,
+            spaceId: spaceId,
+            orgId: orgId,
+            idp: {
+              idpId: idpId,
+              userId: userId,
+            },
           },
           object: {
             id: "reward-001",
@@ -153,7 +227,7 @@ describe("events", () => {
             }
           },
         }
-        logEvent("reward", "point", "created", event)
+        logEvent("reward", "point", "provisioned", event)
       })
 
     })
@@ -165,15 +239,18 @@ describe("events", () => {
     test("signup", () => {
       const event: EventSession = {
         event: "session.signup",
-        timestamp: timestamp,
-        location: location,
-        sessionId: sessionId,
-        spaceId: spaceId,
-        orgId: orgId,
-        idp: {
-          idpId: idpId,
-          userId: userId,
+        context: {
+          timestamp: timestamp,
+          location: location,
+          sessionId: sessionId,
+          spaceId: spaceId,
+          orgId: orgId,
+          idp: {
+            idpId: idpId,
+            userId: userId,
+          },
         },
+        object: {},
       }
       logEvent("session", "", "signup", event)
     })
@@ -181,15 +258,18 @@ describe("events", () => {
     test("signin", () => {
       const event: EventSession = {
         event: "session.signin",
-        timestamp: timestamp,
-        location: location,
-        sessionId: sessionId,
-        spaceId: spaceId,
-        orgId: orgId,
-        idp: {
-          idpId: idpId,
-          userId: userId,
+        context: {
+          timestamp: timestamp,
+          location: location,
+          sessionId: sessionId,
+          spaceId: spaceId,
+          orgId: orgId,
+          idp: {
+            idpId: idpId,
+            userId: userId,
+          },
         },
+        object: {},
       }
       logEvent("session", "", "signin", event)
     })
@@ -197,15 +277,18 @@ describe("events", () => {
     test("entered_space", () => {
       const event: EventSession = {
         event: "session.entered_space",
-        timestamp: timestamp,
-        location: location,
-        sessionId: sessionId,
-        spaceId: spaceId,
-        orgId: orgId,
-        idp: {
-          idpId: idpId,
-          userId: userId,
+        context: {
+          timestamp: timestamp,
+          location: location,
+          sessionId: sessionId,
+          spaceId: spaceId,
+          orgId: orgId,
+          idp: {
+            idpId: idpId,
+            userId: userId,
+          },
         },
+        object: {},
       }
       logEvent("session", "", "entered_space", event)
     })
@@ -217,8 +300,10 @@ describe("events", () => {
       test("updated", () => {
         const event: EventLeaderboard = {
           event: "leaderboard.updated",
-          spaceId: spaceId,
-          orgId: orgId,
+          context: {
+            spaceId: spaceId,
+            orgId: orgId,
+          },
           object: {
             leaders: [
               {rank: 1, metric: 499, nameSanitized: "Joe S"},

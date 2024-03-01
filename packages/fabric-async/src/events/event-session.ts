@@ -1,12 +1,13 @@
 import {
-  GeospatialEvent,
   EventName,
   SessionOperation,
-  IdP,
+  BaseEvent,
+  ContextSession,
 } from "../base"
 
-export interface EventSession extends GeospatialEvent {
-  event: EventName<"session", SessionOperation>
-  idp: IdP
-  sessionId: string
+export interface EventSession extends BaseEvent<
+  EventName<"session", SessionOperation>,
+  ContextSession,
+  object
+> {
 }

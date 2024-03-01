@@ -9,8 +9,9 @@ export interface SpaceEvent {
   orgId: string
 }
 
-export interface BaseDataEvent <ET, OT> extends SpaceEvent {
+export interface BaseEvent <ET, CT, OT> {
   event: ET
+  context: CT
   object: OT
 }
 
@@ -29,15 +30,22 @@ export interface IdP {
   userId: string
 }
 
-export interface BaseSessionEvent <ET, OT> extends GeospatialEvent {
-  event: ET
-  object: OT
-  idp: IdP
-  sessionId: string
-}
-
+export type ChoiceOperation = "saved"
+export type OutcomeOperation = "assigned" | "revealed" | "claimed"
 export type RecordOperation = "created" | "updated" | "deleted"
+export type RewardOperation = "provisioned" | "fulfilled"
 export type PurchaseOperation = "payment_completed" | "payment_refunded"
 export type SessionOperation = "signup" | "signin" | "entered_space"
 
 export type EventName <DT extends string, OT extends string> = `${DT}.${OT}`
+
+export type ContextSpace = SpaceEvent
+
+export interface ContextSession extends GeospatialEvent {
+  sessionId: string
+  idp: IdP
+}
+
+export interface ContextSessionJourney extends ContextSession {
+  journeyId: string
+}

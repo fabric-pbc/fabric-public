@@ -5,6 +5,7 @@ export interface BaseRecord <T> {
 }
 
 export interface SpaceEvent {
+  timestamp: number
   spaceId: string
   orgId: string
 }
@@ -21,7 +22,6 @@ export interface LocationInfo {
 }
 
 export interface GeospatialEvent extends SpaceEvent {
-  timestamp: number
   location: LocationInfo
 }
 
@@ -49,3 +49,13 @@ export interface ContextSession extends GeospatialEvent {
 export interface ContextSessionJourney extends ContextSession {
   journeyId: string
 }
+
+export interface ContextSessionFab extends ContextSessionJourney {
+  fabId: string
+  actionLogId: string
+  action: string
+}
+
+export type ContextUserActivity =
+  | ContextSession
+  | ContextSessionFab

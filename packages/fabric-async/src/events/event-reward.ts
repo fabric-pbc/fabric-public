@@ -1,6 +1,6 @@
 import {
   BaseEvent,
-  ContextSession,
+  ContextUserActivity,
   EventName,
   RewardOperation,
 } from "../base"
@@ -11,6 +11,6 @@ import {
 
 export interface EventReward extends BaseEvent<
   EventName<"reward", RewardOperation>,
-  ContextSession,
-  Reward
+  ContextUserActivity,
+  Reward[]
 > {}

@@ -6,20 +6,20 @@ import {
 import {
   BaseEvent,
   ChoiceOperation,
-  ContextSessionJourney,
+  ContextSessionFab,
   EventName,
   OutcomeOperation,
 } from "../base"
 
 export interface EventInteractionOutcome extends BaseEvent<
   EventName<"outcome", OutcomeOperation>,
-  ContextSessionJourney,
+  ContextSessionFab,
   Outcome
 > {}
 
 export interface EventInteractionChoice extends BaseEvent<
   EventName<"choice", ChoiceOperation>,
-  ContextSessionJourney,
+  ContextSessionFab,
   Choice
 > {}
 

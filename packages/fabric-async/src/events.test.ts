@@ -46,6 +46,9 @@ describe("events", () => {
             timestamp: timestamp,
             location: location,
             sessionId: sessionId,
+            action: "user-action-xyz",
+            actionLogId: "action-log-1",
+            fabId: fabId,
             journeyId: journeyId,
             spaceId: spaceId,
             orgId: orgId,
@@ -58,7 +61,6 @@ describe("events", () => {
             id: "outcome-001",
             type: "outcome",
             assignedId: "prize-123",
-            fabId,
             revealed: false,
             claimed: false,
           }
@@ -75,6 +77,9 @@ describe("events", () => {
             timestamp: timestamp,
             location: location,
             sessionId: sessionId,
+            action: "user-action-xyz",
+            actionLogId: "action-log-2",
+            fabId: fabId,
             journeyId: journeyId,
             spaceId: spaceId,
             orgId: orgId,
@@ -88,7 +93,6 @@ describe("events", () => {
             type: "choice",
             questionId: questionId,
             selectedOptionId: selectedOptionId,
-            fabId: fabId,
           }
         }
         logEvent("interaction", "choice", "assigned", event)
@@ -185,12 +189,12 @@ describe("events", () => {
               userId: userId,
             },
           },
-          object: {
+          object: [{
             id: "reward-001",
             type: "badge",
             bucketId: bucketId,
             badgeId: badgeId,
-          },
+          }],
         }
         logEvent("reward", "badge", "provisioned", event)
       })
@@ -210,13 +214,17 @@ describe("events", () => {
             location: location,
             sessionId: sessionId,
             spaceId: spaceId,
+            fabId: fabId,
+            actionLogId: "user-action-2",
+            // TODO: include the identifier for the rule used to determine the reward
+            // ruleId: ruleId,
             orgId: orgId,
             idp: {
               idpId: idpId,
               userId: userId,
             },
           },
-          object: {
+          object: [{
             id: "reward-001",
             type: "point",
             bucketId: bucketId,
@@ -225,7 +233,7 @@ describe("events", () => {
               balance: priorBalance + pointsAdded,
               experience: priorExperience + pointsAdded,
             }
-          },
+          }],
         }
         logEvent("reward", "point", "provisioned", event)
       })
@@ -303,6 +311,7 @@ describe("events", () => {
           context: {
             spaceId: spaceId,
             orgId: orgId,
+            timestamp: Date.now(),
           },
           object: {
             leaders: [

@@ -1,16 +1,12 @@
 import { BaseRecord } from "../base"
 
-export interface BaseFabByProduct<T> extends BaseRecord<T> {
-  fabId: string
-}
-
-export interface Outcome extends BaseFabByProduct<"outcome"> {
+export interface Outcome extends BaseRecord<"outcome"> {
   assignedId: string
   revealed: boolean
   claimed: boolean
 }
 
-export interface Choice extends BaseFabByProduct<"choice"> {
+export interface Choice extends BaseRecord<"choice"> {
   questionId: string
   selectedOptionId: string
 }

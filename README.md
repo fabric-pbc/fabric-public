@@ -1,2 +1,2 @@
 # fabric-public
-Public packages for Fabric PBC
+Public packages for the Fabric platform.

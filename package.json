@@ -4,7 +4,11 @@
   "description": "Public packages for the Fabric platform",
   "type": "module",
   "scripts": {
-    "lint": "eslint ."
+    "build": "npm run build -ws",
+    "lint": "eslint .",
+    "test:nocoverage": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test": "npm run test:nocoverage"
   },
   "repository": {
     "type": "git",
@@ -29,9 +33,12 @@
   ],
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
+    "@vitest/coverage-v8": "^1.4.0",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3",
-    "typescript-eslint": "^7.0.2"
+    "typescript-eslint": "^7.0.2",
+    "vite": "^5.2.8",
+    "vitest": "^1.4.0"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1"

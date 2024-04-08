@@ -30,7 +30,7 @@ jobs:
         run: npm run lint
 
       - name: Build Affected Packages
-        run: npm run build -ws
+        run: npm run build
 
       - name: Execute Unit Tests
-        run: npm test -ws
+        run: npm test

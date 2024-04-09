@@ -4,6 +4,7 @@
   "description": "Public packages for the Fabric platform",
   "type": "module",
   "scripts": {
+    "release": "npm run build && npx changeset publish",
     "build": "npm run build -ws",
     "lint": "eslint .",
     "test:nocoverage": "vitest",

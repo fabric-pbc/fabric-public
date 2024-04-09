@@ -1,5 +1,5 @@
 {
-  "name": "@fabric-pbc/fabric-async",
+  "name": "@fabric-space/fabric-async",
   "version": "0.1.1",
   "description": "Async messages emitted by the Fabric platform",
   "type": "module",

@@ -1,5 +1,5 @@
 {
-  "name": "@fabric-pbc/fabric-public",
+  "name": "@fabric-space/fabric-public",
   "version": "0.1.0",
   "description": "Public packages for the Fabric platform",
   "type": "module",

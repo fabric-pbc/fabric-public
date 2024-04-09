@@ -1,4 +1,4 @@
-# @fabric-pbc/fabric-async
+# @fabric-space/fabric-async
 
 ## 0.1.1
 

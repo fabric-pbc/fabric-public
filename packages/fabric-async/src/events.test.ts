@@ -10,6 +10,7 @@ import {
   EventSession,
   EventInteractionOutcome,
   EventInteractionChoice,
+  EventInteractionAssessment,
 } from './events'
 
 import {
@@ -30,6 +31,8 @@ describe("events", () => {
   const productId = "products-567"
   const journeyId = "journey-abc"
   const fabId = "fab-def"
+  const contentId = "content-002"
+  const attemptId = "attempt-003"
   const questionId = "questions-x"
   const selectedOptionId = "options-y"
   const location: LocationInfo = {
@@ -96,6 +99,68 @@ describe("events", () => {
           }
         }
         logEvent("interaction", "choice", "assigned", event)
+      })
+    })
+
+    describe("assessment", () => {
+      test("progress", () => {
+        const event: EventInteractionAssessment = {
+          event: "assessment.progress",
+          context: {
+            timestamp: timestamp,
+            location: location,
+            sessionId: sessionId,
+            attemptId: attemptId,
+            contentId: contentId,
+            action: "user-action-xyz",
+            actionLogId: "action-log-3",
+            fabId: fabId,
+            journeyId: journeyId,
+            spaceId: spaceId,
+            orgId: orgId,
+            idp: {
+              idpId: idpId,
+              userId: userId,
+            },
+          },
+          object: {
+            type: "assessment",
+            id: contentId,
+            correctCount: 3,
+            previousBestCorrect: 4,
+          }
+        }
+        logEvent("interaction", "assessment", "progress", event)
+      })
+
+      test("completed", () => {
+        const event: EventInteractionAssessment = {
+          event: "assessment.completed",
+          context: {
+            timestamp: timestamp,
+            location: location,
+            sessionId: sessionId,
+            attemptId: attemptId,
+            contentId: "content-002",
+            action: "user-action-xyz",
+            actionLogId: "action-log-3",
+            fabId: fabId,
+            journeyId: journeyId,
+            spaceId: spaceId,
+            orgId: orgId,
+            idp: {
+              idpId: idpId,
+              userId: userId,
+            },
+          },
+          object: {
+            type: "assessment",
+            id: "content-002",
+            correctCount: 5,
+            previousBestCorrect: 4,
+          }
+        }
+        logEvent("interaction", "assessment", "completed", event)
       })
     })
 

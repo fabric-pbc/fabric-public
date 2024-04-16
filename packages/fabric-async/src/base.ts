@@ -30,6 +30,7 @@ export interface IdP {
   userId: string
 }
 
+export type AssessmentOperation = "progress" | "completed"
 export type ChoiceOperation = "saved"
 export type OutcomeOperation = "assigned" | "revealed" | "claimed"
 export type RecordOperation = "created" | "updated" | "deleted"
@@ -56,6 +57,12 @@ export interface ContextSessionFab extends ContextSessionJourney {
   action: string
 }
 
+export interface ContextSessionAssessment extends ContextSessionFab {
+  attemptId: string
+  contentId: string
+}
+
 export type ContextUserActivity =
   | ContextSession
   | ContextSessionFab
+  | ContextSessionAssessment

@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.2
+
+### Patch Changes
+
+- 63cdfdc: Adds events for Assessments and replaces badges with products in Reward events
+
 ## 0.1.1
 
 ### Patch Changes

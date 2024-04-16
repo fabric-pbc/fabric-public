@@ -236,41 +236,12 @@ describe("events", () => {
 
   describe("reward", () => {
     const bucketId = "gamify-bucket-003"
-    const badgeId = "badge-004"
+    const productId = "product-004"
+    const pointsAdded = 5
+    const priorBalance = 50
+    const priorExperience = 100
 
-    describe("badge", () => {
-
-      test("provisioned", () => {
-        const event: EventReward = {
-          event: "reward.provisioned",
-          context: {
-            timestamp: timestamp,
-            location: location,
-            sessionId: sessionId,
-            spaceId: spaceId,
-            orgId: orgId,
-            idp: {
-              idpId: idpId,
-              userId: userId,
-            },
-          },
-          object: [{
-            id: "reward-001",
-            type: "badge",
-            bucketId: bucketId,
-            badgeId: badgeId,
-          }],
-        }
-        logEvent("reward", "badge", "provisioned", event)
-      })
-
-    })
-
-    describe("point", () => {
-      const pointsAdded = 5
-      const priorBalance = 50
-      const priorExperience = 100
-
+    describe("product-points", () => {
       test("provisioned", () => {
         const event: EventReward = {
           event: "reward.provisioned",
@@ -289,22 +260,28 @@ describe("events", () => {
               userId: userId,
             },
           },
-          object: [{
-            id: "reward-001",
-            type: "point",
-            bucketId: bucketId,
-            value: pointsAdded,
-            current: {
-              balance: priorBalance + pointsAdded,
-              experience: priorExperience + pointsAdded,
-            }
-          }],
+          object: [
+            {
+              id: "reward-001",
+              type: "product",
+              productId: productId,
+              inventoryId: "inventory-007",
+            },
+            {
+              id: "reward-002",
+              type: "point",
+              bucketId: bucketId,
+              value: pointsAdded,
+              current: {
+                balance: priorBalance + pointsAdded,
+                experience: priorExperience + pointsAdded,
+              }
+            },
+          ],
         }
-        logEvent("reward", "point", "provisioned", event)
+        logEvent("reward", "product-points", "provisioned", event)
       })
-
     })
-
   })
 
   describe("session", () => {

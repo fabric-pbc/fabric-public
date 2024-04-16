@@ -2,9 +2,9 @@ import {
   BaseRecord,
 } from "../base"
 
-export interface RewardBadge extends BaseRecord<"badge"> {
-  bucketId: string
-  badgeId: string
+export interface RewardProduct extends BaseRecord<"product"> {
+  productId: string
+  inventoryId: string
 }
 
 export interface PointStatus {
@@ -19,6 +19,6 @@ export interface RewardPoint extends BaseRecord<"point"> {
 }
 
 export type Reward =
-  | RewardBadge
+  | RewardProduct
   | RewardPoint
 

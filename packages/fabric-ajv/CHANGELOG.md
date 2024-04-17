@@ -1,5 +1,13 @@
 # @fabric-space/fabric-ajv
 
+## 0.1.3
+
+### Patch Changes
+
+- 37a3d26: Support field for (fabric) userId
+- Updated dependencies [37a3d26]
+  - @fabric-space/fabric-async@0.1.6
+
 ## 0.1.2
 
 ### Patch Changes

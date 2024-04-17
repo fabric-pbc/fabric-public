@@ -15,7 +15,7 @@ import {
 
 import {
   LocationInfo,
-} from './base'
+} from './context'
 
 function logEvent<T extends object>(category: string, model: string, eventName: string, event: T) {
   console.log(`${category}, ${model}, ${eventName}:\n${JSON.stringify(event, null, 2)}`)

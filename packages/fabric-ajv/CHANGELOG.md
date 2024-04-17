@@ -1,5 +1,13 @@
 # @fabric-space/fabric-ajv
 
+## 0.1.2
+
+### Patch Changes
+
+- 7f10bec: Provide schema for all activity event type.
+- Updated dependencies [ac89491]
+  - @fabric-space/fabric-async@0.1.4
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @fabric-space/fabric-async
 
+## 0.1.4
+
+### Patch Changes
+
+- ac89491: Include Interaction events in type with all event activity.
+  Rename timestamp field to reflect unit.
+
 ## 0.1.3
 
 ### Patch Changes

@@ -12,7 +12,7 @@ import { JSONSchemaType } from "ajv"
 export const SchemaContextSession: JSONSchemaType<ContextSession> = {
   type: "object",
   required: [
-    "idp",
+    "userId",
     "location",
     "orgId",
     "sessionId",
@@ -21,6 +21,7 @@ export const SchemaContextSession: JSONSchemaType<ContextSession> = {
   ],
   properties: {
     idp: {
+      nullable: true,
       type: "object",
       required: [
         "idpId",
@@ -43,6 +44,7 @@ export const SchemaContextSession: JSONSchemaType<ContextSession> = {
       }
     },
     orgId: {type: "string"},
+    userId: {type: "string"},
     sessionId: {type: "string"},
     spaceId: {type: "string"},
     secondsSinceEpoch: {type: "integer"},
@@ -52,7 +54,7 @@ export const SchemaContextSession: JSONSchemaType<ContextSession> = {
 export const SchemaContextSessionFab: JSONSchemaType<ContextSessionFab> = {
   type: "object",
   required: [
-    "idp",
+    "userId",
     "location",
     "orgId",
     "sessionId",
@@ -65,6 +67,7 @@ export const SchemaContextSessionFab: JSONSchemaType<ContextSessionFab> = {
   ],
   properties: {
     idp: {
+      nullable: true,
       type: "object",
       required: [
         "idpId",
@@ -87,6 +90,7 @@ export const SchemaContextSessionFab: JSONSchemaType<ContextSessionFab> = {
       }
     },
     orgId: {type: "string"},
+    userId: {type: "string"},
     sessionId: {type: "string"},
     spaceId: {type: "string"},
     secondsSinceEpoch: {type: "integer"},
@@ -100,7 +104,7 @@ export const SchemaContextSessionFab: JSONSchemaType<ContextSessionFab> = {
 export const SchemaContextSessionAssessment: JSONSchemaType<ContextSessionAssessment> = {
   type: "object",
   required: [
-    "idp",
+    "userId",
     "location",
     "orgId",
     "sessionId",
@@ -115,6 +119,7 @@ export const SchemaContextSessionAssessment: JSONSchemaType<ContextSessionAssess
   ],
   properties: {
     idp: {
+      nullable: true,
       type: "object",
       required: [
         "idpId",
@@ -137,6 +142,7 @@ export const SchemaContextSessionAssessment: JSONSchemaType<ContextSessionAssess
       }
     },
     orgId: {type: "string"},
+    userId: {type: "string"},
     sessionId: {type: "string"},
     spaceId: {type: "string"},
     secondsSinceEpoch: {type: "integer"},
@@ -155,7 +161,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
     {
       type: "object",
       required: [
-        "idp",
+        "userId",
         "location",
         "orgId",
         "sessionId",
@@ -164,6 +170,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
       ],
       properties: {
         idp: {
+          nullable: true,
           type: "object",
           required: [
             "idpId",
@@ -186,6 +193,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
           }
         },
         orgId: {type: "string"},
+        userId: {type: "string"},
         sessionId: {type: "string"},
         spaceId: {type: "string"},
         secondsSinceEpoch: {type: "integer"},
@@ -195,7 +203,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
     {
       type: "object",
       required: [
-        "idp",
+        "userId",
         "location",
         "orgId",
         "sessionId",
@@ -208,6 +216,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
       ],
       properties: {
         idp: {
+          nullable: true,
           type: "object",
           required: [
             "idpId",
@@ -230,6 +239,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
           }
         },
         orgId: {type: "string"},
+        userId: {type: "string"},
         sessionId: {type: "string"},
         spaceId: {type: "string"},
         secondsSinceEpoch: {type: "integer"},
@@ -243,7 +253,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
     {
       type: "object",
       required: [
-        "idp",
+        "userId",
         "location",
         "orgId",
         "sessionId",
@@ -258,6 +268,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
       ],
       properties: {
         idp: {
+          nullable: true,
           type: "object",
           required: [
             "idpId",
@@ -280,6 +291,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
           }
         },
         orgId: {type: "string"},
+        userId: {type: "string"},
         sessionId: {type: "string"},
         spaceId: {type: "string"},
         secondsSinceEpoch: {type: "integer"},

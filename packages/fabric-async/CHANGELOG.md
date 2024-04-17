@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.6
+
+### Patch Changes
+
+- 37a3d26: Support field for (fabric) userId
+
 ## 0.1.5
 
 ### Patch Changes

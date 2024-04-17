@@ -24,7 +24,8 @@ function logEvent<T extends object>(category: string, model: string, eventName: 
 describe("events", () => {
   const timestamp = Math.floor(Date.now()/1000)
   const idpId = "abc"
-  const userId = "external-user-123"
+  const fabricUserId = "fabric-user-id"
+  const externalUserId = "external-user-123"
   const sessionId = "session-456"
   const spaceId = "space-007"
   const orgId = "org-888"
@@ -55,9 +56,10 @@ describe("events", () => {
             journeyId: journeyId,
             spaceId: spaceId,
             orgId: orgId,
+            userId: fabricUserId,
             idp: {
               idpId: idpId,
-              userId: userId,
+              userId: externalUserId,
             },
           },
           object: {
@@ -86,9 +88,10 @@ describe("events", () => {
             journeyId: journeyId,
             spaceId: spaceId,
             orgId: orgId,
+            userId: fabricUserId,
             idp: {
               idpId: idpId,
-              userId: userId,
+              userId: externalUserId,
             },
           },
           object: {
@@ -118,9 +121,10 @@ describe("events", () => {
             journeyId: journeyId,
             spaceId: spaceId,
             orgId: orgId,
+            userId: fabricUserId,
             idp: {
               idpId: idpId,
-              userId: userId,
+              userId: externalUserId,
             },
           },
           object: {
@@ -148,9 +152,10 @@ describe("events", () => {
             journeyId: journeyId,
             spaceId: spaceId,
             orgId: orgId,
+            userId: fabricUserId,
             idp: {
               idpId: idpId,
-              userId: userId,
+              userId: externalUserId,
             },
           },
           object: {
@@ -179,9 +184,10 @@ describe("events", () => {
             sessionId: sessionId,
             spaceId: spaceId,
             orgId: orgId,
+            userId: fabricUserId,
             idp: {
               idpId: idpId,
-              userId: userId,
+              userId: externalUserId,
             },
           },
           object: {
@@ -211,9 +217,10 @@ describe("events", () => {
             sessionId: sessionId,
             spaceId: spaceId,
             orgId: orgId,
+            userId: fabricUserId,
             idp: {
               idpId: idpId,
-              userId: userId,
+              userId: externalUserId,
             },
           },
           object: {
@@ -254,9 +261,10 @@ describe("events", () => {
             // TODO: include the identifier for the rule used to determine the reward
             // ruleId: ruleId,
             orgId: orgId,
+            userId: fabricUserId,
             idp: {
               idpId: idpId,
-              userId: userId,
+              userId: externalUserId,
             },
           },
           object: [
@@ -294,9 +302,10 @@ describe("events", () => {
           sessionId: sessionId,
           spaceId: spaceId,
           orgId: orgId,
+          userId: fabricUserId,
           idp: {
             idpId: idpId,
-            userId: userId,
+            userId: externalUserId,
           },
         },
         object: {},
@@ -313,9 +322,10 @@ describe("events", () => {
           sessionId: sessionId,
           spaceId: spaceId,
           orgId: orgId,
+          userId: fabricUserId,
           idp: {
             idpId: idpId,
-            userId: userId,
+            userId: externalUserId,
           },
         },
         object: {},
@@ -332,9 +342,10 @@ describe("events", () => {
           sessionId: sessionId,
           spaceId: spaceId,
           orgId: orgId,
+          userId: fabricUserId,
           idp: {
             idpId: idpId,
-            userId: userId,
+            userId: externalUserId,
           },
         },
         object: {},

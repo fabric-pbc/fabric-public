@@ -27,7 +27,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
         {
           type: "object",
           required: [
-            "idp",
+            "userId",
             "location",
             "orgId",
             "sessionId",
@@ -36,6 +36,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
           ],
           properties: {
             idp: {
+              nullable: true,
               type: "object",
               required: [
                 "idpId",
@@ -58,6 +59,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
               }
             },
             orgId: {type: "string"},
+            userId: {type: "string"},
             sessionId: {type: "string"},
             spaceId: {type: "string"},
             secondsSinceEpoch: {type: "integer"},
@@ -67,7 +69,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
         {
           type: "object",
           required: [
-            "idp",
+            "userId",
             "location",
             "orgId",
             "sessionId",
@@ -80,6 +82,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
           ],
           properties: {
             idp: {
+              nullable: true,
               type: "object",
               required: [
                 "idpId",
@@ -102,6 +105,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
               }
             },
             orgId: {type: "string"},
+            userId: {type: "string"},
             sessionId: {type: "string"},
             spaceId: {type: "string"},
             secondsSinceEpoch: {type: "integer"},
@@ -115,7 +119,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
         {
           type: "object",
           required: [
-            "idp",
+            "userId",
             "location",
             "orgId",
             "sessionId",
@@ -130,6 +134,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
           ],
           properties: {
             idp: {
+              nullable: true,
               type: "object",
               required: [
                 "idpId",
@@ -152,6 +157,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
               }
             },
             orgId: {type: "string"},
+            userId: {type: "string"},
             sessionId: {type: "string"},
             spaceId: {type: "string"},
             secondsSinceEpoch: {type: "integer"},
@@ -313,7 +319,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
             {
               type: "object",
               required: [
-                "idp",
+                "userId",
                 "location",
                 "orgId",
                 "sessionId",
@@ -322,6 +328,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
               ],
               properties: {
                 idp: {
+                  nullable: true,
                   type: "object",
                   required: [
                     "idpId",
@@ -344,6 +351,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
                   }
                 },
                 orgId: {type: "string"},
+                userId: {type: "string"},
                 sessionId: {type: "string"},
                 spaceId: {type: "string"},
                 secondsSinceEpoch: {type: "integer"},
@@ -353,7 +361,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
             {
               type: "object",
               required: [
-                "idp",
+                "userId",
                 "location",
                 "orgId",
                 "sessionId",
@@ -366,6 +374,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
               ],
               properties: {
                 idp: {
+                  nullable: true,
                   type: "object",
                   required: [
                     "idpId",
@@ -388,6 +397,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
                   }
                 },
                 orgId: {type: "string"},
+                userId: {type: "string"},
                 sessionId: {type: "string"},
                 spaceId: {type: "string"},
                 secondsSinceEpoch: {type: "integer"},
@@ -401,7 +411,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
             {
               type: "object",
               required: [
-                "idp",
+                "userId",
                 "location",
                 "orgId",
                 "sessionId",
@@ -416,6 +426,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
               ],
               properties: {
                 idp: {
+                  nullable: true,
                   type: "object",
                   required: [
                     "idpId",
@@ -438,6 +449,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
                   }
                 },
                 orgId: {type: "string"},
+                userId: {type: "string"},
                 sessionId: {type: "string"},
                 spaceId: {type: "string"},
                 secondsSinceEpoch: {type: "integer"},

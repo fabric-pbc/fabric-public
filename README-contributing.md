@@ -1,5 +1,14 @@
 # Contributing
 
+# Building
+```bash
+git clone git@github.com:fabric-pbc/fabric-public.git
+cd fabric-public
+npm install
+npm run build
+npm test
+```
+
 # Adding a new package
 Create the package file using `npm`.
 ```bash
@@ -65,4 +74,5 @@ EOT
 
 popd
 npm run build -w packages/$NEW_PACKAGE
+npm test -w packages/$NEW_PACKAGE
 ```

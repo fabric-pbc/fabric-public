@@ -8,7 +8,8 @@ const ajv = new Ajv({allErrors: true})
 describe("events", () => {
   const timestamp = Math.floor(Date.now()/1000)
   const idpId = "abc"
-  const userId = "external-user-123"
+  const fabricUserId = "fabric-user-005"
+  const externalUserId = "external-user-123"
   const sessionId = "session-456"
   const spaceId = "space-007"
   const orgId = "org-888"
@@ -45,9 +46,10 @@ describe("events", () => {
         // TODO: include the identifier for the rule used to determine the reward
         // ruleId: ruleId,
         orgId: orgId,
+        userId: fabricUserId,
         idp: {
           idpId: idpId,
-          userId: userId,
+          userId: externalUserId,
         },
       },
       object: [

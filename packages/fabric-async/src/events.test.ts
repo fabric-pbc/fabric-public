@@ -15,7 +15,7 @@ import {
 
 import {
   LocationInfo,
-} from './base'
+} from './context'
 
 function logEvent<T extends object>(category: string, model: string, eventName: string, event: T) {
   console.log(`${category}, ${model}, ${eventName}:\n${JSON.stringify(event, null, 2)}`)
@@ -236,7 +236,6 @@ describe("events", () => {
 
   describe("reward", () => {
     const bucketId = "gamify-bucket-003"
-    const productId = "product-004"
     const pointsAdded = 5
     const priorBalance = 50
     const priorExperience = 100

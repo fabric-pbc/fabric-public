@@ -5,14 +5,18 @@ import {
 } from "../activity"
 
 import {
-  AssessmentOperation,
   BaseEvent,
-  ChoiceOperation,
+  EventName,
+} from "../base"
+
+import {
   ContextSessionAssessment,
   ContextSessionFab,
-  EventName,
-  OutcomeOperation,
-} from "../base"
+} from "../context"
+
+export type OutcomeOperation = "assigned" | "revealed" | "claimed"
+export type ChoiceOperation = "saved"
+export type AssessmentOperation = "progress" | "completed"
 
 export interface EventInteractionOutcome extends BaseEvent<
   EventName<Outcome['type'], OutcomeOperation>,

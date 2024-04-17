@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Public packages for the Fabric platform",
   "type": "module",
+  "engines": {
+    "node": ">= 20",
+    "npm": ">= 10"
+  },
   "scripts": {
     "release": "npm run build && npx changeset publish",
     "build": "npm run build -ws",
@@ -30,16 +34,17 @@
   },
   "homepage": "https://github.com/fabric-pbc/fabric-public#readme",
   "workspaces": [
-    "packages/fabric-async"
+    "packages/fabric-async",
+    "packages/fabric-ajv"
   ],
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.2",
-    "@vitest/coverage-v8": "^1.4.0",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
-    "typescript-eslint": "^7.0.2",
+    "@tsconfig/node20": "^20.1.4",
+    "@vitest/coverage-v8": "^1.5.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.7.0",
     "vite": "^5.2.8",
-    "vitest": "^1.4.0"
+    "vitest": "^1.5.0"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1"

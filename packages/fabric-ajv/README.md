@@ -1,17 +1,21 @@
-# fabric-async
-Messages emitted by the Fabric platform, consumable via a webhook.
+# fabric-ajv
+Schema validators for fabric-async.
 
-# Status
-The code is in a `proposal` status.
-This package is not expected to be consumed by production teams yet.
+This package allows you to use [Ajv](https://ajv.js.org/) to evaluate if a javascript object conforms to a schema describing types from [fabric-async](../fabric-async/README.md).
 
 # Install
 ```bash
-npm install @fabric-space/fabric-async
+npm install @fabric-space/fabric-ajv
 ```
 
 # Example
 ```typescript
+import Ajv from "ajv"
+import { SchemaEventReward } from "@fabric-space/fabric-ajv"
+
+const ajv = new Ajv({allErrors: true})
+const validator = ajv.compile(SchemaEventReward)
+
 const event: EventReward = {
   event: "reward.provisioned",
   context: {
@@ -46,4 +50,12 @@ const event: EventReward = {
     },
   ],
 }
+
+const serialized = JSON.stringify(event)
+const deserializezd = JSON.parse(serialized)
+
+if (!validator(deserializezd)) {
+  throw new Error("invalid")
+}
+
 ```

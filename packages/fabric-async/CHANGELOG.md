@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.3
+
+### Patch Changes
+
+- 37277c2: Add package to validate desrialized messages
+
 ## 0.1.2
 
 ### Patch Changes

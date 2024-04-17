@@ -2,6 +2,7 @@ import {
   ContextSession,
   ContextSessionAssessment,
   ContextSessionFab,
+  ContextSpace,
   ContextUserActivity,
 } from '@fabric-space/fabric-async'
 
@@ -291,4 +292,24 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
       }
     },    
   ]
+}
+
+export const SchemaContextSpace: JSONSchemaType<ContextSpace> = {
+  type: "object",
+  required: [
+    "orgId",
+    "spaceId",
+    "secondsSinceEpoch",
+  ],
+  properties: {
+    orgId: {
+      type: "string",
+    },
+    spaceId: {
+      type: "string",
+    },
+    secondsSinceEpoch: {
+      type: "integer",
+    },
+  }
 }

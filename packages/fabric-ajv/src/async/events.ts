@@ -30,7 +30,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
             "orgId",
             "sessionId",
             "spaceId",
-            "timestamp",
+            "secondsSinceEpoch",
           ],
           properties: {
             idp: {
@@ -58,7 +58,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
             orgId: {type: "string"},
             sessionId: {type: "string"},
             spaceId: {type: "string"},
-            timestamp: {type: "integer"},
+            secondsSinceEpoch: {type: "integer"},
           }
         },
         // ContextSessionFab
@@ -70,7 +70,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
             "orgId",
             "sessionId",
             "spaceId",
-            "timestamp",
+            "secondsSinceEpoch",
             "journeyId",
             "fabId",
             "actionLogId",
@@ -102,7 +102,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
             orgId: {type: "string"},
             sessionId: {type: "string"},
             spaceId: {type: "string"},
-            timestamp: {type: "integer"},
+            secondsSinceEpoch: {type: "integer"},
             journeyId: {type: "string"},
             fabId: {type: "string"},
             actionLogId: {type: "string"},
@@ -118,7 +118,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
             "orgId",
             "sessionId",
             "spaceId",
-            "timestamp",
+            "secondsSinceEpoch",
             "journeyId",
             "fabId",
             "actionLogId",
@@ -152,7 +152,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
             orgId: {type: "string"},
             sessionId: {type: "string"},
             spaceId: {type: "string"},
-            timestamp: {type: "integer"},
+            secondsSinceEpoch: {type: "integer"},
             journeyId: {type: "string"},
             fabId: {type: "string"},
             actionLogId: {type: "string"},

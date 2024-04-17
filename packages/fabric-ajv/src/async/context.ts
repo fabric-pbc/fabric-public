@@ -16,7 +16,7 @@ export const SchemaContextSession: JSONSchemaType<ContextSession> = {
     "orgId",
     "sessionId",
     "spaceId",
-    "timestamp",
+    "secondsSinceEpoch",
   ],
   properties: {
     idp: {
@@ -44,7 +44,7 @@ export const SchemaContextSession: JSONSchemaType<ContextSession> = {
     orgId: {type: "string"},
     sessionId: {type: "string"},
     spaceId: {type: "string"},
-    timestamp: {type: "integer"},
+    secondsSinceEpoch: {type: "integer"},
   }
 }
 
@@ -56,7 +56,7 @@ export const SchemaContextSessionFab: JSONSchemaType<ContextSessionFab> = {
     "orgId",
     "sessionId",
     "spaceId",
-    "timestamp",
+    "secondsSinceEpoch",
     "journeyId",
     "fabId",
     "actionLogId",
@@ -88,7 +88,7 @@ export const SchemaContextSessionFab: JSONSchemaType<ContextSessionFab> = {
     orgId: {type: "string"},
     sessionId: {type: "string"},
     spaceId: {type: "string"},
-    timestamp: {type: "integer"},
+    secondsSinceEpoch: {type: "integer"},
     journeyId: {type: "string"},
     fabId: {type: "string"},
     actionLogId: {type: "string"},
@@ -104,7 +104,7 @@ export const SchemaContextSessionAssessment: JSONSchemaType<ContextSessionAssess
     "orgId",
     "sessionId",
     "spaceId",
-    "timestamp",
+    "secondsSinceEpoch",
     "journeyId",
     "fabId",
     "actionLogId",
@@ -138,7 +138,7 @@ export const SchemaContextSessionAssessment: JSONSchemaType<ContextSessionAssess
     orgId: {type: "string"},
     sessionId: {type: "string"},
     spaceId: {type: "string"},
-    timestamp: {type: "integer"},
+    secondsSinceEpoch: {type: "integer"},
     journeyId: {type: "string"},
     fabId: {type: "string"},
     actionLogId: {type: "string"},
@@ -159,7 +159,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
         "orgId",
         "sessionId",
         "spaceId",
-        "timestamp",
+        "secondsSinceEpoch",
       ],
       properties: {
         idp: {
@@ -187,7 +187,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
         orgId: {type: "string"},
         sessionId: {type: "string"},
         spaceId: {type: "string"},
-        timestamp: {type: "integer"},
+        secondsSinceEpoch: {type: "integer"},
       }
     },
     // ContextSessionFab
@@ -199,7 +199,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
         "orgId",
         "sessionId",
         "spaceId",
-        "timestamp",
+        "secondsSinceEpoch",
         "journeyId",
         "fabId",
         "actionLogId",
@@ -231,7 +231,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
         orgId: {type: "string"},
         sessionId: {type: "string"},
         spaceId: {type: "string"},
-        timestamp: {type: "integer"},
+        secondsSinceEpoch: {type: "integer"},
         journeyId: {type: "string"},
         fabId: {type: "string"},
         actionLogId: {type: "string"},
@@ -247,7 +247,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
         "orgId",
         "sessionId",
         "spaceId",
-        "timestamp",
+        "secondsSinceEpoch",
         "journeyId",
         "fabId",
         "actionLogId",
@@ -281,7 +281,7 @@ export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
         orgId: {type: "string"},
         sessionId: {type: "string"},
         spaceId: {type: "string"},
-        timestamp: {type: "integer"},
+        secondsSinceEpoch: {type: "integer"},
         journeyId: {type: "string"},
         fabId: {type: "string"},
         actionLogId: {type: "string"},

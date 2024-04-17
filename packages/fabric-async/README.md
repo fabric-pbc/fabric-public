@@ -22,9 +22,10 @@ const event: EventReward = {
     fabId: "fab-001",
     actionLogId: "user-action-2",
     orgId: "org-001",
+    userId: "fabric-user-005",
     idp: {
       idpId: "idp-001",
-      userId: "user-001",
+      userId: "external-user-001",
     },
   },
   object: [

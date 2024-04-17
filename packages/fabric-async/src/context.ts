@@ -23,7 +23,8 @@ export type ContextSpace = SpaceEvent
 
 export interface ContextSession extends GeospatialEvent {
   sessionId: string
-  idp: IdP
+  userId: string
+  idp?: IdP
 }
 
 export interface ContextSessionJourney extends ContextSession {

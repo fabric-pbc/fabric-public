@@ -10,7 +10,7 @@ export interface LocationInfo {
 }
 
 export interface SpaceEvent {
-  timestamp: number
+  secondsSinceEpoch: number
   spaceId: string
   orgId: string
 }

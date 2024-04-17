@@ -35,7 +35,7 @@ describe("events", () => {
     const event: EventReward = {
       event: "reward.provisioned",
       context: {
-        timestamp: timestamp,
+        secondsSinceEpoch: timestamp,
         location: location,
         sessionId: sessionId,
         spaceId: spaceId,

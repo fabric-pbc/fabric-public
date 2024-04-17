@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.5
+
+### Patch Changes
+
+- b7fd71f: Add methods to disambiguate event types
+
 ## 0.1.4
 
 ### Patch Changes

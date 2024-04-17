@@ -22,7 +22,7 @@ function logEvent<T extends object>(category: string, model: string, eventName: 
 }
 
 describe("events", () => {
-  const timestamp = Date.now()
+  const timestamp = Math.floor(Date.now()/1000)
   const idpId = "abc"
   const userId = "external-user-123"
   const sessionId = "session-456"
@@ -46,7 +46,7 @@ describe("events", () => {
         const event: EventInteractionOutcome = {
           event: "outcome.assigned",
           context: {
-            timestamp: timestamp,
+            secondsSinceEpoch: timestamp,
             location: location,
             sessionId: sessionId,
             action: "user-action-xyz",
@@ -77,7 +77,7 @@ describe("events", () => {
         const event: EventInteractionChoice = {
           event: "choice.saved",
           context: {
-            timestamp: timestamp,
+            secondsSinceEpoch: timestamp,
             location: location,
             sessionId: sessionId,
             action: "user-action-xyz",
@@ -107,7 +107,7 @@ describe("events", () => {
         const event: EventInteractionAssessment = {
           event: "assessment.progress",
           context: {
-            timestamp: timestamp,
+            secondsSinceEpoch: timestamp,
             location: location,
             sessionId: sessionId,
             attemptId: attemptId,
@@ -137,7 +137,7 @@ describe("events", () => {
         const event: EventInteractionAssessment = {
           event: "assessment.completed",
           context: {
-            timestamp: timestamp,
+            secondsSinceEpoch: timestamp,
             location: location,
             sessionId: sessionId,
             attemptId: attemptId,
@@ -174,7 +174,7 @@ describe("events", () => {
         const event: EventPurchase = {
           event: "purchase.payment_completed",
           context: {
-            timestamp: timestamp,
+            secondsSinceEpoch: timestamp,
             location: location,
             sessionId: sessionId,
             spaceId: spaceId,
@@ -206,7 +206,7 @@ describe("events", () => {
         const event: EventPurchase = {
           event: "purchase.payment_completed",
           context: {
-            timestamp: timestamp,
+            secondsSinceEpoch: timestamp,
             location: location,
             sessionId: sessionId,
             spaceId: spaceId,
@@ -245,7 +245,7 @@ describe("events", () => {
         const event: EventReward = {
           event: "reward.provisioned",
           context: {
-            timestamp: timestamp,
+            secondsSinceEpoch: timestamp,
             location: location,
             sessionId: sessionId,
             spaceId: spaceId,
@@ -289,7 +289,7 @@ describe("events", () => {
       const event: EventSession = {
         event: "session.signup",
         context: {
-          timestamp: timestamp,
+          secondsSinceEpoch: timestamp,
           location: location,
           sessionId: sessionId,
           spaceId: spaceId,
@@ -308,7 +308,7 @@ describe("events", () => {
       const event: EventSession = {
         event: "session.signin",
         context: {
-          timestamp: timestamp,
+          secondsSinceEpoch: timestamp,
           location: location,
           sessionId: sessionId,
           spaceId: spaceId,
@@ -327,7 +327,7 @@ describe("events", () => {
       const event: EventSession = {
         event: "session.entered_space",
         context: {
-          timestamp: timestamp,
+          secondsSinceEpoch: timestamp,
           location: location,
           sessionId: sessionId,
           spaceId: spaceId,
@@ -352,7 +352,7 @@ describe("events", () => {
           context: {
             spaceId: spaceId,
             orgId: orgId,
-            timestamp: Date.now(),
+            secondsSinceEpoch: Date.now(),
           },
           object: {
             leaders: [

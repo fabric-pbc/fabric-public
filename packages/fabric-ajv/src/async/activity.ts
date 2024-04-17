@@ -1,4 +1,6 @@
 import {
+  LeaderInfo,
+  Leaderboard,
   Reward,
   RewardPoint,
   RewardProduct,
@@ -104,4 +106,55 @@ export const SchemaReward: JSONSchemaType<Reward> = {
       }
     }
   ]
+}
+
+export const ScheamLeaderInfo: JSONSchemaType<LeaderInfo> = {
+  type: "object",
+  required: [
+    "metric",
+    "nameSanitized",
+    "rank",
+  ],
+  properties: {
+    nameSanitized: {
+      type: "string",
+    },
+    rank: {
+      type: "integer",
+    },
+    metric: {
+      type: "number",
+    },
+  }
+}
+
+export const SchemaLeaderboard: JSONSchemaType<Leaderboard> = {
+  type: "object",
+  required: [
+    "leaders",
+  ],
+  properties: {
+    leaders: {
+      type: "array",
+      items: {
+        type: "object",
+        required: [
+          "metric",
+          "nameSanitized",
+          "rank",
+        ],
+        properties: {
+          nameSanitized: {
+            type: "string",
+          },
+          rank: {
+            type: "integer",
+          },
+          metric: {
+            type: "number",
+          },
+        },
+      },
+    },
+  },
 }

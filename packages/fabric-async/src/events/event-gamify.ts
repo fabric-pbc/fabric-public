@@ -1,7 +1,6 @@
 import {
   BaseEvent,
   EventName,
-  RecordOperation,
 } from "../base"
 
 import {
@@ -12,8 +11,10 @@ import {
   ContextSpace,
 } from "../context"
 
+export type LeaderboardOperation = "updated"
+
 export interface EventLeaderboard extends BaseEvent<
-  EventName<"leaderboard", RecordOperation>,
+  EventName<"leaderboard", LeaderboardOperation>,
   ContextSpace,
   Leaderboard
 > {}

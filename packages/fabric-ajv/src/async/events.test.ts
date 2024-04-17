@@ -1,12 +1,12 @@
 import { describe, test, expect } from "vitest"
-import { EventReward, LocationInfo } from "@fabric-space/fabric-async"
+import { EventLeaderboard, EventReward, LocationInfo } from "@fabric-space/fabric-async"
 import Ajv from "ajv"
-import { SchemaEventReward } from "./events"
+import { SchemaActivityEvent } from "./events"
 
 const ajv = new Ajv({allErrors: true})
 
 describe("events", () => {
-  const timestamp = Date.now()
+  const timestamp = Math.floor(Date.now()/1000)
   const idpId = "abc"
   const userId = "external-user-123"
   const sessionId = "session-456"
@@ -28,14 +28,15 @@ describe("events", () => {
   const priorBalance = 50
   const priorExperience = 100
 
+  // one validator to test all Events
+  const validator = ajv.compile(SchemaActivityEvent)
 
   test("reward", () => {
-    const validator = ajv.compile(SchemaEventReward)
 
     const event: EventReward = {
       event: "reward.provisioned",
       context: {
-        timestamp: timestamp,
+        secondsSinceEpoch: timestamp,
         location: location,
         sessionId: sessionId,
         spaceId: spaceId,
@@ -67,6 +68,30 @@ describe("events", () => {
           }
         },
       ],
+    }
+
+    const serialized = JSON.stringify(event)
+    const deserializezd = JSON.parse(serialized)
+
+    // const isValid = 
+    validator(deserializezd)
+    expect(validator.errors).toBeFalsy()
+  })
+
+  test("leaderboard", () => {
+    const event: EventLeaderboard = {
+      event: "leaderboard.updated",
+      context: {
+        orgId: orgId,
+        spaceId: spaceId,
+        secondsSinceEpoch: timestamp,
+      },
+      object: {
+        leaders: [
+          {nameSanitized: "Jane D.", rank: 1, metric: 500},
+          {nameSanitized: "John D.", rank: 2, metric: 300},
+        ],
+      },
     }
 
     const serialized = JSON.stringify(event)

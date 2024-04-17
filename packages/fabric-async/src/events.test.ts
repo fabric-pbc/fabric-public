@@ -236,7 +236,6 @@ describe("events", () => {
 
   describe("reward", () => {
     const bucketId = "gamify-bucket-003"
-    const productId = "product-004"
     const pointsAdded = 5
     const priorBalance = 50
     const priorExperience = 100

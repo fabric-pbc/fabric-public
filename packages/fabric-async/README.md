@@ -15,7 +15,7 @@ npm install @fabric-space/fabric-async
 const event: EventReward = {
   event: "reward.provisioned",
   context: {
-    timestamp: Date.now(),
+    secondsSinceEpoch: Math.floor(Date.now()/1000),
     location: { lat: 40.760833, lng: -111.891111, },
     sessionId: "session-001",
     spaceId: "space-001",

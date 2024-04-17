@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Public packages for the Fabric platform",
   "type": "module",
+  "engines": {
+    "node": ">= 20",
+    "npm": ">= 10"
+  },
   "scripts": {
     "release": "npm run build && npx changeset publish",
     "build": "npm run build -ws",
@@ -30,7 +34,8 @@
   },
   "homepage": "https://github.com/fabric-pbc/fabric-public#readme",
   "workspaces": [
-    "packages/fabric-async"
+    "packages/fabric-async",
+    "packages/fabric-ajv"
   ],
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",

@@ -1,5 +1,11 @@
 # @fabric-space/fabric-ajv
 
+## 0.1.4
+
+### Patch Changes
+
+- 1644079: Fix context schema to allow anyOf
+
 ## 0.1.3
 
 ### Patch Changes

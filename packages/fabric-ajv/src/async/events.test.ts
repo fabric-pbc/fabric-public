@@ -28,6 +28,8 @@ describe("events", () => {
   const pointsAdded = 5
   const priorBalance = 50
   const priorExperience = 100
+  const journeyId = "journeys-001"
+  const action = "test"
 
   // one validator to test all Events
   const validator = ajv.compile(SchemaActivityEvent)
@@ -41,7 +43,9 @@ describe("events", () => {
         location: location,
         sessionId: sessionId,
         spaceId: spaceId,
+        journeyId,
         fabId: fabId,
+        action,
         actionLogId: "user-action-2",
         // TODO: include the identifier for the rule used to determine the reward
         // ruleId: ruleId,

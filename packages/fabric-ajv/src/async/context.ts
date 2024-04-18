@@ -156,7 +156,7 @@ export const SchemaContextSessionAssessment: JSONSchemaType<ContextSessionAssess
 }
 
 export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
-  oneOf: [
+  anyOf: [
     // ContextSession
     {
       type: "object",

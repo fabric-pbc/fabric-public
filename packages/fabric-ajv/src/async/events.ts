@@ -22,7 +22,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
       ],
     },
     context: {
-      oneOf: [
+      anyOf: [
         // ContextSession
         {
           type: "object",
@@ -314,7 +314,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
           ],
         },
         context: {
-          oneOf: [
+          anyOf: [
             // ContextSession
             {
               type: "object",

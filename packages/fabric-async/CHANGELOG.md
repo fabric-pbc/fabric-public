@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.7
+
+### Patch Changes
+
+- 0b8db9a: Add type guard for Event context
+
 ## 0.1.6
 
 ### Patch Changes

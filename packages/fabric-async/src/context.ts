@@ -46,3 +46,14 @@ export type ContextUserActivity =
   | ContextSession
   | ContextSessionFab
   | ContextSessionAssessment
+
+
+// type guards
+
+export function isContextSessionFab(ctx: ContextUserActivity): ctx is ContextSessionFab {
+  return !!(ctx as ContextSessionFab).fabId
+}
+
+export function isContextSessionAssessment(ctx: ContextUserActivity): ctx is ContextSessionAssessment {
+  return !!(ctx as ContextSessionAssessment).contentId
+}

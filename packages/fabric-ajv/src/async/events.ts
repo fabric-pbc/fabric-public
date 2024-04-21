@@ -9,11 +9,16 @@ import { JSONSchemaType } from 'ajv'
 export const SchemaEventReward: JSONSchemaType<EventReward> = {
   type: "object",
   required: [
+    "version",
     "event",
     "context",
     "object",
   ],
   properties: {
+    version: {
+      type: "string",
+      const: "0.1",
+    },
     event: {
       type: "string",
       enum: [
@@ -231,11 +236,16 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
 export const SchemaEventLeaderboard: JSONSchemaType<EventLeaderboard> = {
   type: "object",
   required: [
+    "version",
     "event",
     "context",
     "object"
   ],
   properties: {
+    version: {
+      type: "string",
+      const: "0.1",
+    },
     event: {
       type: "string",
       enum: [
@@ -301,11 +311,16 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
     {
       type: "object",
       required: [
+        "version",
         "event",
         "context",
         "object",
       ],
       properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
         event: {
           type: "string",
           enum: [
@@ -525,11 +540,16 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
     {
       type: "object",
       required: [
+        "version",
         "event",
         "context",
         "object"
       ],
       properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
         event: {
           type: "string",
           enum: [

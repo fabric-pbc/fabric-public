@@ -21,19 +21,22 @@ export type AssessmentOperation = "progress" | "completed"
 export interface EventInteractionOutcome extends BaseEvent<
   EventName<Outcome['type'], OutcomeOperation>,
   ContextSessionFab,
-  Outcome
+  Outcome,
+  '0.1'
 > {}
 
 export interface EventInteractionChoice extends BaseEvent<
   EventName<Choice['type'], ChoiceOperation>,
   ContextSessionFab,
-  Choice
+  Choice,
+  '0.1'
 > {}
 
 export interface EventInteractionAssessment extends BaseEvent<
   EventName<Assessment['type'], AssessmentOperation>,
   ContextSessionAssessment,
-  Assessment
+  Assessment,
+  '0.1'
 > {}
 
 export type EventInteraction =

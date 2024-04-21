@@ -42,7 +42,8 @@ export interface ContextSessionAssessment extends ContextSessionFab {
   contentId: string
 }
 
-export type ContextUserActivity =
+export type ContextSpaceActivity =
+  | ContextSpace
   | ContextSession
   | ContextSessionFab
   | ContextSessionAssessment
@@ -50,10 +51,14 @@ export type ContextUserActivity =
 
 // type guards
 
-export function isContextSessionFab(ctx: ContextUserActivity): ctx is ContextSessionFab {
+export function isContextSession(ctx: ContextSpaceActivity): ctx is ContextSession {
+  return !!(ctx as ContextSession).sessionId
+}
+
+export function isContextSessionFab(ctx: ContextSpaceActivity): ctx is ContextSessionFab {
   return !!(ctx as ContextSessionFab).fabId
 }
 
-export function isContextSessionAssessment(ctx: ContextUserActivity): ctx is ContextSessionAssessment {
+export function isContextSessionAssessment(ctx: ContextSpaceActivity): ctx is ContextSessionAssessment {
   return !!(ctx as ContextSessionAssessment).contentId
 }

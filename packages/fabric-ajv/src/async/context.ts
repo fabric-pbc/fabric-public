@@ -3,7 +3,7 @@ import {
   ContextSessionAssessment,
   ContextSessionFab,
   ContextSpace,
-  ContextUserActivity,
+  ContextSpaceActivity,
 } from '@fabric-space/fabric-async'
 
 import { JSONSchemaType } from "ajv"
@@ -155,7 +155,7 @@ export const SchemaContextSessionAssessment: JSONSchemaType<ContextSessionAssess
   }
 }
 
-export const SchemaContextUserActivity: JSONSchemaType<ContextUserActivity> = {
+export const SchemaContextUserActivity: JSONSchemaType<ContextSpaceActivity> = {
   anyOf: [
     // ContextSession
     {

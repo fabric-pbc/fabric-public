@@ -12,6 +12,7 @@ export type SessionOperation = "signup" | "signin" | "entered_space"
 export interface EventSession extends BaseEvent<
   EventName<"session", SessionOperation>,
   ContextSession,
-  object
+  null,
+  '0.1'
 > {
 }

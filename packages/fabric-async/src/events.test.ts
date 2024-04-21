@@ -45,6 +45,7 @@ describe("events", () => {
     describe("outcome", () => {
       test("assigned", () => {
         const event: EventInteractionOutcome = {
+          version: "0.1",
           event: "outcome.assigned",
           context: {
             secondsSinceEpoch: timestamp,
@@ -77,6 +78,7 @@ describe("events", () => {
     describe("choice", () => {
       test("saved", () => {
         const event: EventInteractionChoice = {
+          version: "0.1",
           event: "choice.saved",
           context: {
             secondsSinceEpoch: timestamp,
@@ -108,6 +110,7 @@ describe("events", () => {
     describe("assessment", () => {
       test("progress", () => {
         const event: EventInteractionAssessment = {
+          version: "0.1",
           event: "assessment.progress",
           context: {
             secondsSinceEpoch: timestamp,
@@ -139,6 +142,7 @@ describe("events", () => {
 
       test("completed", () => {
         const event: EventInteractionAssessment = {
+          version: "0.1",
           event: "assessment.completed",
           context: {
             secondsSinceEpoch: timestamp,
@@ -177,6 +181,7 @@ describe("events", () => {
 
       test("payment_completed", () => {
         const event: EventPurchase = {
+          version: "0.1",
           event: "purchase.payment_completed",
           context: {
             secondsSinceEpoch: timestamp,
@@ -210,6 +215,7 @@ describe("events", () => {
 
       test("payment_completed", () => {
         const event: EventPurchase = {
+          version: "0.1",
           event: "purchase.payment_completed",
           context: {
             secondsSinceEpoch: timestamp,
@@ -250,6 +256,7 @@ describe("events", () => {
     describe("product-points", () => {
       test("provisioned", () => {
         const event: EventReward = {
+          version: "0.1",
           event: "reward.provisioned",
           context: {
             secondsSinceEpoch: timestamp,
@@ -295,6 +302,7 @@ describe("events", () => {
 
     test("signup", () => {
       const event: EventSession = {
+        version: "0.1",
         event: "session.signup",
         context: {
           secondsSinceEpoch: timestamp,
@@ -308,13 +316,14 @@ describe("events", () => {
             userId: externalUserId,
           },
         },
-        object: {},
+        object: null,
       }
       logEvent("session", "", "signup", event)
     })
 
     test("signin", () => {
       const event: EventSession = {
+        version: "0.1",
         event: "session.signin",
         context: {
           secondsSinceEpoch: timestamp,
@@ -328,13 +337,14 @@ describe("events", () => {
             userId: externalUserId,
           },
         },
-        object: {},
+        object: null,
       }
       logEvent("session", "", "signin", event)
     })
 
     test("entered_space", () => {
       const event: EventSession = {
+        version: "0.1",
         event: "session.entered_space",
         context: {
           secondsSinceEpoch: timestamp,
@@ -348,7 +358,7 @@ describe("events", () => {
             userId: externalUserId,
           },
         },
-        object: {},
+        object: null,
       }
       logEvent("session", "", "entered_space", event)
     })
@@ -359,6 +369,7 @@ describe("events", () => {
     describe("leaderboard", () => {
       test("updated", () => {
         const event: EventLeaderboard = {
+          version: "0.1",
           event: "leaderboard.updated",
           context: {
             spaceId: spaceId,

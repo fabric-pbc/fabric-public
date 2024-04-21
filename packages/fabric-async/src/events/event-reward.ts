@@ -4,7 +4,7 @@ import {
 } from "../base"
 
 import {
-  ContextUserActivity,
+  ContextSpaceActivity,
 } from "../context"
 
 import {
@@ -15,6 +15,7 @@ export type RewardOperation = "provisioned" | "fulfilled"
 
 export interface EventReward extends BaseEvent<
   EventName<"reward", RewardOperation>,
-  ContextUserActivity,
-  Reward[]
+  ContextSpaceActivity,
+  Reward[],
+  '0.1'
 > {}

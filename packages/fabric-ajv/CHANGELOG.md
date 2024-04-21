@@ -1,5 +1,13 @@
 # @fabric-space/fabric-ajv
 
+## 0.1.5
+
+### Patch Changes
+
+- 9d84860: Add version attribute to events.
+- Updated dependencies [9d84860]
+  - @fabric-space/fabric-async@0.1.8
+
 ## 0.1.4
 
 ### Patch Changes

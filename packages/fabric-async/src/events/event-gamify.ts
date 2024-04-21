@@ -16,5 +16,6 @@ export type LeaderboardOperation = "updated"
 export interface EventLeaderboard extends BaseEvent<
   EventName<"leaderboard", LeaderboardOperation>,
   ContextSpace,
-  Leaderboard
+  Leaderboard,
+  '0.1'
 > {}

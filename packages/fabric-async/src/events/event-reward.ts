@@ -16,5 +16,6 @@ export type RewardOperation = "provisioned" | "fulfilled"
 export interface EventReward extends BaseEvent<
   EventName<"reward", RewardOperation>,
   ContextUserActivity,
-  Reward[]
+  Reward[],
+  '0.1'
 > {}

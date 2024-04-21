@@ -4,7 +4,8 @@ export interface BaseRecord <T> {
   id: string
 }
 
-export interface BaseEvent <ET, CT, OT> {
+export interface BaseEvent <ET, CT, OT, VT> {
+  version: VT
   event: ET
   context: CT
   object: OT

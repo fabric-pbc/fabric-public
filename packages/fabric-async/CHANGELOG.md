@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.8
+
+### Patch Changes
+
+- 9d84860: Add version attribute to events.
+
 ## 0.1.7
 
 ### Patch Changes

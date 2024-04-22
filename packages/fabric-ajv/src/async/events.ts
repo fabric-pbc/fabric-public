@@ -1,7 +1,12 @@
 import {
   ActivityEvent,
+  EventInteraction,
+  EventInteractionAssessment,
+  EventInteractionChoice,
+  EventInteractionOutcome,
   EventLeaderboard,
   EventReward,
+  EventSession,
 } from '@fabric-space/fabric-async'
 
 import { JSONSchemaType } from 'ajv'
@@ -312,6 +317,696 @@ export const SchemaEventLeaderboard: JSONSchemaType<EventLeaderboard> = {
   }
 }
 
+export const SchemaEventInteractionOutcome: JSONSchemaType<EventInteractionOutcome> = {
+  type: "object",
+  required: [
+    "version",
+    "eventId",
+    "event",
+    "context",
+    "object",
+  ],
+  properties: {
+    version: {
+      type: "string",
+      const: "0.1",
+    },
+    eventId: {
+      type: "string",
+    },
+    event: {
+      type: "string",
+      enum: [
+        "outcome.assigned",
+        "outcome.claimed",
+        "outcome.revealed",
+      ],
+    },
+    context: {
+      type: "object",
+      required: [
+        "userId",
+        "location",
+        "orgId",
+        "sessionId",
+        "spaceId",
+        "secondsSinceEpoch",
+        "journeyId",
+        "fabId",
+        "actionLogId",
+        "action",
+      ],
+      properties: {
+        idp: {
+          nullable: true,
+          type: "object",
+          required: [
+            "idpId",
+            "userId",
+          ],
+          properties: {
+            idpId: {type: "string"},
+            userId: {type: "string"},
+          },
+        },
+        location: {
+          type: "object",
+          required: [
+            "lat",
+            "lng",
+          ],
+          properties: {
+            lat: {type: "number"},
+            lng: {type: "number"},
+          }
+        },
+        orgId: {type: "string"},
+        userId: {type: "string"},
+        sessionId: {type: "string"},
+        spaceId: {type: "string"},
+        secondsSinceEpoch: {type: "integer"},
+        journeyId: {type: "string"},
+        fabId: {type: "string"},
+        actionLogId: {type: "string"},
+        action: {type: "string"},
+      }
+    },
+    object: {
+      type: "object",
+      required: [
+        "type",
+        "id",
+        "claimed",
+        "revealed",
+        "assignedId",
+      ],
+      properties: {
+        type: {
+          type: "string",
+          const: "outcome",
+        },
+        id: {
+          type: "string",
+        },
+        claimed: {
+          type: "boolean",
+        },
+        revealed: {
+          type: "boolean",
+        },
+        assignedId: {
+          type: "string",
+        },
+      },
+    },
+  },
+}
+
+
+export const SchemaEventInteractionChoice: JSONSchemaType<EventInteractionChoice> = {
+  type: "object",
+  required: [
+    "version",
+    "eventId",
+    "event",
+    "context",
+    "object",
+  ],
+  properties: {
+    version: {
+      type: "string",
+      const: "0.1",
+    },
+    eventId: {
+      type: "string",
+    },
+    event: {
+      type: "string",
+      enum: [
+        "choice.saved",
+      ],
+    },
+    context: {
+      type: "object",
+      required: [
+        "userId",
+        "location",
+        "orgId",
+        "sessionId",
+        "spaceId",
+        "secondsSinceEpoch",
+        "journeyId",
+        "fabId",
+        "actionLogId",
+        "action",
+      ],
+      properties: {
+        idp: {
+          nullable: true,
+          type: "object",
+          required: [
+            "idpId",
+            "userId",
+          ],
+          properties: {
+            idpId: {type: "string"},
+            userId: {type: "string"},
+          },
+        },
+        location: {
+          type: "object",
+          required: [
+            "lat",
+            "lng",
+          ],
+          properties: {
+            lat: {type: "number"},
+            lng: {type: "number"},
+          }
+        },
+        orgId: {type: "string"},
+        userId: {type: "string"},
+        sessionId: {type: "string"},
+        spaceId: {type: "string"},
+        secondsSinceEpoch: {type: "integer"},
+        journeyId: {type: "string"},
+        fabId: {type: "string"},
+        actionLogId: {type: "string"},
+        action: {type: "string"},
+      }
+    },
+    object: {
+      type: "object",
+      required: [
+        "type",
+        "id",
+        "questionId",
+        "selectedOptionId",
+      ],
+      properties: {
+        type: {
+          type: "string",
+          const: "choice",
+        },
+        id: {
+          type: "string",
+        },
+        questionId: {
+          type: "string",
+        },
+        selectedOptionId: {
+          type: "string",
+        },
+      },
+    },
+  },
+}
+
+export const SchemaEventInteractionAssessment: JSONSchemaType<EventInteractionAssessment> = {
+  type: "object",
+  required: [
+    "version",
+    "eventId",
+    "event",
+    "context",
+    "object",
+  ],
+  properties: {
+    version: {
+      type: "string",
+      const: "0.1",
+    },
+    eventId: {
+      type: "string",
+    },
+    event: {
+      type: "string",
+      enum: [
+        "assessment.completed",
+        "assessment.progress",
+      ],
+    },
+    context: {
+      type: "object",
+      required: [
+        "userId",
+        "location",
+        "orgId",
+        "sessionId",
+        "spaceId",
+        "secondsSinceEpoch",
+        "journeyId",
+        "fabId",
+        "actionLogId",
+        "action",
+        "attemptId",
+        "contentId",
+      ],
+      properties: {
+        idp: {
+          nullable: true,
+          type: "object",
+          required: [
+            "idpId",
+            "userId",
+          ],
+          properties: {
+            idpId: {type: "string"},
+            userId: {type: "string"},
+          },
+        },
+        location: {
+          type: "object",
+          required: [
+            "lat",
+            "lng",
+          ],
+          properties: {
+            lat: {type: "number"},
+            lng: {type: "number"},
+          }
+        },
+        orgId: {type: "string"},
+        userId: {type: "string"},
+        sessionId: {type: "string"},
+        spaceId: {type: "string"},
+        secondsSinceEpoch: {type: "integer"},
+        journeyId: {type: "string"},
+        fabId: {type: "string"},
+        actionLogId: {type: "string"},
+        action: {type: "string"},
+        attemptId: {type: "string"},
+        contentId: {type: "string"},
+      }
+    },
+    object: {
+      type: "object",
+      required: [
+        "type",
+        "correct",
+        "questions",
+      ],
+      properties: {
+        type: {
+          type: "string",
+          const: "assessment",
+        },
+        questions: {
+          type: "integer",
+        },
+        correct: {
+          type: "integer",
+        },
+        previousBestCorrect: {
+          nullable: true,
+          type: "integer",
+        },
+      },
+    },
+  },
+}
+
+export const SchemaEventInteraction: JSONSchemaType<EventInteraction> = {
+  oneOf: [
+    // EventInteractionOutcome
+    {
+      type: "object",
+      required: [
+        "version",
+        "eventId",
+        "event",
+        "context",
+        "object",
+      ],
+      properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
+        eventId: {
+          type: "string",
+        },
+        event: {
+          type: "string",
+          enum: [
+            "outcome.assigned",
+            "outcome.claimed",
+            "outcome.revealed",
+          ],
+        },
+        context: {
+          type: "object",
+          required: [
+            "userId",
+            "location",
+            "orgId",
+            "sessionId",
+            "spaceId",
+            "secondsSinceEpoch",
+            "journeyId",
+            "fabId",
+            "actionLogId",
+            "action",
+          ],
+          properties: {
+            idp: {
+              nullable: true,
+              type: "object",
+              required: [
+                "idpId",
+                "userId",
+              ],
+              properties: {
+                idpId: {type: "string"},
+                userId: {type: "string"},
+              },
+            },
+            location: {
+              type: "object",
+              required: [
+                "lat",
+                "lng",
+              ],
+              properties: {
+                lat: {type: "number"},
+                lng: {type: "number"},
+              }
+            },
+            orgId: {type: "string"},
+            userId: {type: "string"},
+            sessionId: {type: "string"},
+            spaceId: {type: "string"},
+            secondsSinceEpoch: {type: "integer"},
+            journeyId: {type: "string"},
+            fabId: {type: "string"},
+            actionLogId: {type: "string"},
+            action: {type: "string"},
+          }
+        },
+        object: {
+          type: "object",
+          required: [
+            "type",
+            "id",
+            "claimed",
+            "revealed",
+            "assignedId",
+          ],
+          properties: {
+            type: {
+              type: "string",
+              const: "outcome",
+            },
+            id: {
+              type: "string",
+            },
+            claimed: {
+              type: "boolean",
+            },
+            revealed: {
+              type: "boolean",
+            },
+            assignedId: {
+              type: "string",
+            },
+          },
+        },
+      },
+    },
+    // EventInteractionChoice
+    {
+      type: "object",
+      required: [
+        "version",
+        "eventId",
+        "event",
+        "context",
+        "object",
+      ],
+      properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
+        eventId: {
+          type: "string",
+        },
+        event: {
+          type: "string",
+          enum: [
+            "choice.saved",
+          ],
+        },
+        context: {
+          type: "object",
+          required: [
+            "userId",
+            "location",
+            "orgId",
+            "sessionId",
+            "spaceId",
+            "secondsSinceEpoch",
+            "journeyId",
+            "fabId",
+            "actionLogId",
+            "action",
+          ],
+          properties: {
+            idp: {
+              nullable: true,
+              type: "object",
+              required: [
+                "idpId",
+                "userId",
+              ],
+              properties: {
+                idpId: {type: "string"},
+                userId: {type: "string"},
+              },
+            },
+            location: {
+              type: "object",
+              required: [
+                "lat",
+                "lng",
+              ],
+              properties: {
+                lat: {type: "number"},
+                lng: {type: "number"},
+              }
+            },
+            orgId: {type: "string"},
+            userId: {type: "string"},
+            sessionId: {type: "string"},
+            spaceId: {type: "string"},
+            secondsSinceEpoch: {type: "integer"},
+            journeyId: {type: "string"},
+            fabId: {type: "string"},
+            actionLogId: {type: "string"},
+            action: {type: "string"},
+          }
+        },
+        object: {
+          type: "object",
+          required: [
+            "type",
+            "id",
+            "questionId",
+            "selectedOptionId",
+          ],
+          properties: {
+            type: {
+              type: "string",
+              const: "choice",
+            },
+            id: {
+              type: "string",
+            },
+            questionId: {
+              type: "string",
+            },
+            selectedOptionId: {
+              type: "string",
+            },
+          },
+        },
+      },
+    },
+    // EventInteractionAssessment
+    {
+      type: "object",
+      required: [
+        "version",
+        "eventId",
+        "event",
+        "context",
+        "object",
+      ],
+      properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
+        eventId: {
+          type: "string",
+        },
+        event: {
+          type: "string",
+          enum: [
+            "assessment.completed",
+            "assessment.progress",
+          ],
+        },
+        context: {
+          type: "object",
+          required: [
+            "userId",
+            "location",
+            "orgId",
+            "sessionId",
+            "spaceId",
+            "secondsSinceEpoch",
+            "journeyId",
+            "fabId",
+            "actionLogId",
+            "action",
+            "attemptId",
+            "contentId",
+          ],
+          properties: {
+            idp: {
+              nullable: true,
+              type: "object",
+              required: [
+                "idpId",
+                "userId",
+              ],
+              properties: {
+                idpId: {type: "string"},
+                userId: {type: "string"},
+              },
+            },
+            location: {
+              type: "object",
+              required: [
+                "lat",
+                "lng",
+              ],
+              properties: {
+                lat: {type: "number"},
+                lng: {type: "number"},
+              }
+            },
+            orgId: {type: "string"},
+            userId: {type: "string"},
+            sessionId: {type: "string"},
+            spaceId: {type: "string"},
+            secondsSinceEpoch: {type: "integer"},
+            journeyId: {type: "string"},
+            fabId: {type: "string"},
+            actionLogId: {type: "string"},
+            action: {type: "string"},
+            attemptId: {type: "string"},
+            contentId: {type: "string"},
+          }
+        },
+        object: {
+          type: "object",
+          required: [
+            "type",
+            "correct",
+            "questions",
+          ],
+          properties: {
+            type: {
+              type: "string",
+              const: "assessment",
+            },
+            questions: {
+              type: "integer",
+            },
+            correct: {
+              type: "integer",
+            },
+            previousBestCorrect: {
+              nullable: true,
+              type: "integer",
+            },
+          },
+        },
+      },
+    },
+  ]
+}
+
+export const SchemaEventSession: JSONSchemaType<EventSession> = {
+  type: "object",
+  required: [
+    "version",
+    "eventId",
+    "event",
+    "context",
+  ],
+  properties: {
+    version: {
+      type: "string",
+      const: "0.1",
+    },
+    eventId: {
+      type: "string",
+    },
+    event: {
+      type: "string",
+      enum: [
+        "session.entered_space",
+        "session.signin",
+        "session.signup",
+      ],
+    },
+    context: {
+      type: "object",
+      required: [
+        "userId",
+        "location",
+        "orgId",
+        "sessionId",
+        "spaceId",
+        "secondsSinceEpoch",
+      ],
+      properties: {
+        idp: {
+          nullable: true,
+          type: "object",
+          required: [
+            "idpId",
+            "userId",
+          ],
+          properties: {
+            idpId: {type: "string"},
+            userId: {type: "string"},
+          },
+        },
+        location: {
+          type: "object",
+          required: [
+            "lat",
+            "lng",
+          ],
+          properties: {
+            lat: {type: "number"},
+            lng: {type: "number"},
+          }
+        },
+        orgId: {type: "string"},
+        userId: {type: "string"},
+        sessionId: {type: "string"},
+        spaceId: {type: "string"},
+        secondsSinceEpoch: {type: "integer"},
+      }
+    }
+  },
+}
+
 export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
   oneOf: [
     // EventPurchase
@@ -547,8 +1242,74 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
       }
     },
     // EventSession
+    {
+      type: "object",
+      required: [
+        "version",
+        "eventId",
+        "event",
+        "context",
+      ],
+      properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
+        eventId: {
+          type: "string",
+        },
+        event: {
+          type: "string",
+          enum: [
+            "session.entered_space",
+            "session.signin",
+            "session.signup",
+          ],
+        },
+        context: {
+          type: "object",
+          required: [
+            "userId",
+            "location",
+            "orgId",
+            "sessionId",
+            "spaceId",
+            "secondsSinceEpoch",
+          ],
+          properties: {
+            idp: {
+              nullable: true,
+              type: "object",
+              required: [
+                "idpId",
+                "userId",
+              ],
+              properties: {
+                idpId: {type: "string"},
+                userId: {type: "string"},
+              },
+            },
+            location: {
+              type: "object",
+              required: [
+                "lat",
+                "lng",
+              ],
+              properties: {
+                lat: {type: "number"},
+                lng: {type: "number"},
+              }
+            },
+            orgId: {type: "string"},
+            userId: {type: "string"},
+            sessionId: {type: "string"},
+            spaceId: {type: "string"},
+            secondsSinceEpoch: {type: "integer"},
+          }
+        }
+      },
+    },
     // EventLeaderboard
-    // EventInteraction
     {
       type: "object",
       required: [
@@ -565,7 +1326,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
         },
         eventId: {
           type: "string",
-        },    
+        },
         event: {
           type: "string",
           enum: [
@@ -622,6 +1383,319 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
           },
         },
       }
+    },
+    // EventInteraction
+    {
+      oneOf: [
+        // EventInteractionOutcome
+        {
+          type: "object",
+          required: [
+            "version",
+            "eventId",
+            "event",
+            "context",
+            "object",
+          ],
+          properties: {
+            version: {
+              type: "string",
+              const: "0.1",
+            },
+            eventId: {
+              type: "string",
+            },
+            event: {
+              type: "string",
+              enum: [
+                "outcome.assigned",
+                "outcome.claimed",
+                "outcome.revealed",
+              ],
+            },
+            context: {
+              type: "object",
+              required: [
+                "userId",
+                "location",
+                "orgId",
+                "sessionId",
+                "spaceId",
+                "secondsSinceEpoch",
+                "journeyId",
+                "fabId",
+                "actionLogId",
+                "action",
+              ],
+              properties: {
+                idp: {
+                  nullable: true,
+                  type: "object",
+                  required: [
+                    "idpId",
+                    "userId",
+                  ],
+                  properties: {
+                    idpId: {type: "string"},
+                    userId: {type: "string"},
+                  },
+                },
+                location: {
+                  type: "object",
+                  required: [
+                    "lat",
+                    "lng",
+                  ],
+                  properties: {
+                    lat: {type: "number"},
+                    lng: {type: "number"},
+                  }
+                },
+                orgId: {type: "string"},
+                userId: {type: "string"},
+                sessionId: {type: "string"},
+                spaceId: {type: "string"},
+                secondsSinceEpoch: {type: "integer"},
+                journeyId: {type: "string"},
+                fabId: {type: "string"},
+                actionLogId: {type: "string"},
+                action: {type: "string"},
+              }
+            },
+            object: {
+              type: "object",
+              required: [
+                "type",
+                "id",
+                "claimed",
+                "revealed",
+                "assignedId",
+              ],
+              properties: {
+                type: {
+                  type: "string",
+                  const: "outcome",
+                },
+                id: {
+                  type: "string",
+                },
+                claimed: {
+                  type: "boolean",
+                },
+                revealed: {
+                  type: "boolean",
+                },
+                assignedId: {
+                  type: "string",
+                },
+              },
+            },
+          },
+        },
+        // EventInteractionChoice
+        {
+          type: "object",
+          required: [
+            "version",
+            "eventId",
+            "event",
+            "context",
+            "object",
+          ],
+          properties: {
+            version: {
+              type: "string",
+              const: "0.1",
+            },
+            eventId: {
+              type: "string",
+            },
+            event: {
+              type: "string",
+              enum: [
+                "choice.saved",
+              ],
+            },
+            context: {
+              type: "object",
+              required: [
+                "userId",
+                "location",
+                "orgId",
+                "sessionId",
+                "spaceId",
+                "secondsSinceEpoch",
+                "journeyId",
+                "fabId",
+                "actionLogId",
+                "action",
+              ],
+              properties: {
+                idp: {
+                  nullable: true,
+                  type: "object",
+                  required: [
+                    "idpId",
+                    "userId",
+                  ],
+                  properties: {
+                    idpId: {type: "string"},
+                    userId: {type: "string"},
+                  },
+                },
+                location: {
+                  type: "object",
+                  required: [
+                    "lat",
+                    "lng",
+                  ],
+                  properties: {
+                    lat: {type: "number"},
+                    lng: {type: "number"},
+                  }
+                },
+                orgId: {type: "string"},
+                userId: {type: "string"},
+                sessionId: {type: "string"},
+                spaceId: {type: "string"},
+                secondsSinceEpoch: {type: "integer"},
+                journeyId: {type: "string"},
+                fabId: {type: "string"},
+                actionLogId: {type: "string"},
+                action: {type: "string"},
+              }
+            },
+            object: {
+              type: "object",
+              required: [
+                "type",
+                "id",
+                "questionId",
+                "selectedOptionId",
+              ],
+              properties: {
+                type: {
+                  type: "string",
+                  const: "choice",
+                },
+                id: {
+                  type: "string",
+                },
+                questionId: {
+                  type: "string",
+                },
+                selectedOptionId: {
+                  type: "string",
+                },
+              },
+            },
+          },
+        },
+        // EventInteractionAssessment
+        {
+          type: "object",
+          required: [
+            "version",
+            "eventId",
+            "event",
+            "context",
+            "object",
+          ],
+          properties: {
+            version: {
+              type: "string",
+              const: "0.1",
+            },
+            eventId: {
+              type: "string",
+            },
+            event: {
+              type: "string",
+              enum: [
+                "assessment.completed",
+                "assessment.progress",
+              ],
+            },
+            context: {
+              type: "object",
+              required: [
+                "userId",
+                "location",
+                "orgId",
+                "sessionId",
+                "spaceId",
+                "secondsSinceEpoch",
+                "journeyId",
+                "fabId",
+                "actionLogId",
+                "action",
+                "attemptId",
+                "contentId",
+              ],
+              properties: {
+                idp: {
+                  nullable: true,
+                  type: "object",
+                  required: [
+                    "idpId",
+                    "userId",
+                  ],
+                  properties: {
+                    idpId: {type: "string"},
+                    userId: {type: "string"},
+                  },
+                },
+                location: {
+                  type: "object",
+                  required: [
+                    "lat",
+                    "lng",
+                  ],
+                  properties: {
+                    lat: {type: "number"},
+                    lng: {type: "number"},
+                  }
+                },
+                orgId: {type: "string"},
+                userId: {type: "string"},
+                sessionId: {type: "string"},
+                spaceId: {type: "string"},
+                secondsSinceEpoch: {type: "integer"},
+                journeyId: {type: "string"},
+                fabId: {type: "string"},
+                actionLogId: {type: "string"},
+                action: {type: "string"},
+                attemptId: {type: "string"},
+                contentId: {type: "string"},
+              }
+            },
+            object: {
+              type: "object",
+              required: [
+                "type",
+                "correct",
+                "questions",
+              ],
+              properties: {
+                type: {
+                  type: "string",
+                  const: "assessment",
+                },
+                questions: {
+                  type: "integer",
+                },
+                correct: {
+                  type: "integer",
+                },
+                previousBestCorrect: {
+                  nullable: true,
+                  type: "integer",
+                },
+              },
+            },
+          },
+        },
+      ]
     },
   ]
 }

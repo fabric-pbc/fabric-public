@@ -1,6 +1,9 @@
 import {
+  Assessment,
+  Choice,
   LeaderInfo,
   Leaderboard,
+  Outcome,
   Reward,
   RewardPoint,
   RewardProduct,
@@ -155,6 +158,85 @@ export const SchemaLeaderboard: JSONSchemaType<Leaderboard> = {
           },
         },
       },
+    },
+  },
+}
+
+export const SchemaOutcome: JSONSchemaType<Outcome> = {
+  type: "object",
+  required: [
+    "type",
+    "id",
+    "claimed",
+    "revealed",
+    "assignedId",
+  ],
+  properties: {
+    type: {
+      type: "string",
+      const: "outcome",
+    },
+    id: {
+      type: "string",
+    },
+    claimed: {
+      type: "boolean",
+    },
+    revealed: {
+      type: "boolean",
+    },
+    assignedId: {
+      type: "string",
+    },
+  },
+}
+
+export const SchemaChoice: JSONSchemaType<Choice> = {
+  type: "object",
+  required: [
+    "type",
+    "id",
+    "questionId",
+    "selectedOptionId",
+  ],
+  properties: {
+    type: {
+      type: "string",
+      const: "choice",
+    },
+    id: {
+      type: "string",
+    },
+    questionId: {
+      type: "string",
+    },
+    selectedOptionId: {
+      type: "string",
+    },
+  },
+}
+
+export const SchemaAssessment: JSONSchemaType<Assessment> = {
+  type: "object",
+  required: [
+    "type",
+    "correct",
+    "questions",
+  ],
+  properties: {
+    type: {
+      type: "string",
+      const: "assessment",
+    },
+    questions: {
+      type: "integer",
+    },
+    correct: {
+      type: "integer",
+    },
+    previousBestCorrect: {
+      nullable: true,
+      type: "integer",
     },
   },
 }

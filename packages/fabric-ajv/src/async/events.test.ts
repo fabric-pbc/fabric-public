@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest"
-import { EventLeaderboard, EventReward, LocationInfo } from "@fabric-space/fabric-async"
+import { EventInteractionAssessment, EventLeaderboard, EventReward, EventSession, LocationInfo } from "@fabric-space/fabric-async"
 import Ajv from "ajv"
 import { SchemaActivityEvent } from "./events"
 
@@ -86,6 +86,33 @@ describe("events", () => {
     expect(validator.errors).toBeFalsy()
   })
 
+  test("session", () => {
+    const event: EventSession = {
+      version: "0.1",
+      eventId: "ev-001",
+      event: "session.entered_space",
+      context: {
+        secondsSinceEpoch: timestamp,
+        location: location,
+        orgId: orgId,
+        spaceId: spaceId,
+        sessionId: sessionId,
+        userId: fabricUserId,
+        idp: {
+          idpId: idpId,
+          userId: externalUserId,
+        },
+      },
+    }
+
+    const serialized = JSON.stringify(event)
+    const deserializezd = JSON.parse(serialized)
+
+    // const isValid = 
+    validator(deserializezd)
+    expect(validator.errors).toBeFalsy()
+  })
+
   test("leaderboard", () => {
     const event: EventLeaderboard = {
       version: "0.1",
@@ -102,6 +129,41 @@ describe("events", () => {
           {nameSanitized: "John D.", rank: 2, metric: 300},
         ],
       },
+    }
+
+    const serialized = JSON.stringify(event)
+    const deserializezd = JSON.parse(serialized)
+
+    // const isValid = 
+    validator(deserializezd)
+    expect(validator.errors).toBeFalsy()
+  })
+
+  test("assessment", () => {
+    const event: EventInteractionAssessment = {
+      version: "0.1",
+      eventId: "ev-001",
+      event: "assessment.completed",
+      context: {
+        orgId: orgId,
+        spaceId: spaceId,
+        journeyId: journeyId,
+        fabId: fabId,
+        attemptId: "",
+        contentId: "content-001",
+        action: "choice-saved",
+        actionLogId: "actions-001",
+        sessionId: sessionId,
+        userId: fabricUserId,
+        location: location,
+        secondsSinceEpoch: timestamp,
+      },
+      object: {
+        type: "assessment",
+        previousBestCorrect: 4,
+        correct: 5,
+        questions: 5,
+      }
     }
 
     const serialized = JSON.stringify(event)

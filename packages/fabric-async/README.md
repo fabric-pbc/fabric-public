@@ -13,13 +13,17 @@ npm install @fabric-space/fabric-async
 # Example
 ```typescript
 const event: EventReward = {
+  version: "0.1",
+  eventId: "ev-001",
   event: "reward.provisioned",
   context: {
     secondsSinceEpoch: Math.floor(Date.now()/1000),
     location: { lat: 40.760833, lng: -111.891111, },
     sessionId: "session-001",
     spaceId: "space-001",
+    journeyId: "journey-001",
     fabId: "fab-001",
+    action: "assessment-completed",
     actionLogId: "user-action-2",
     orgId: "org-001",
     userId: "fabric-user-005",

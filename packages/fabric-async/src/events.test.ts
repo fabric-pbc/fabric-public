@@ -46,6 +46,7 @@ describe("events", () => {
       test("assigned", () => {
         const event: EventInteractionOutcome = {
           version: "0.1",
+          eventId: "ev-001",
           event: "outcome.assigned",
           context: {
             secondsSinceEpoch: timestamp,
@@ -79,6 +80,7 @@ describe("events", () => {
       test("saved", () => {
         const event: EventInteractionChoice = {
           version: "0.1",
+          eventId: "ev-001",
           event: "choice.saved",
           context: {
             secondsSinceEpoch: timestamp,
@@ -111,6 +113,7 @@ describe("events", () => {
       test("progress", () => {
         const event: EventInteractionAssessment = {
           version: "0.1",
+          eventId: "ev-001",
           event: "assessment.progress",
           context: {
             secondsSinceEpoch: timestamp,
@@ -133,7 +136,8 @@ describe("events", () => {
           object: {
             type: "assessment",
             id: contentId,
-            correctCount: 3,
+            correct: 3,
+            questions: 5,
             previousBestCorrect: 4,
           }
         }
@@ -143,6 +147,7 @@ describe("events", () => {
       test("completed", () => {
         const event: EventInteractionAssessment = {
           version: "0.1",
+          eventId: "ev-001",
           event: "assessment.completed",
           context: {
             secondsSinceEpoch: timestamp,
@@ -165,8 +170,9 @@ describe("events", () => {
           object: {
             type: "assessment",
             id: "content-002",
-            correctCount: 5,
             previousBestCorrect: 4,
+            correct: 5,
+            questions: 5,
           }
         }
         logEvent("interaction", "assessment", "completed", event)
@@ -182,6 +188,7 @@ describe("events", () => {
       test("payment_completed", () => {
         const event: EventPurchase = {
           version: "0.1",
+          eventId: "ev-001",
           event: "purchase.payment_completed",
           context: {
             secondsSinceEpoch: timestamp,
@@ -216,6 +223,7 @@ describe("events", () => {
       test("payment_completed", () => {
         const event: EventPurchase = {
           version: "0.1",
+          eventId: "ev-001",
           event: "purchase.payment_completed",
           context: {
             secondsSinceEpoch: timestamp,
@@ -257,6 +265,7 @@ describe("events", () => {
       test("provisioned", () => {
         const event: EventReward = {
           version: "0.1",
+          eventId: "ev-001",
           event: "reward.provisioned",
           context: {
             secondsSinceEpoch: timestamp,
@@ -303,6 +312,7 @@ describe("events", () => {
     test("signup", () => {
       const event: EventSession = {
         version: "0.1",
+        eventId: "ev-001",
         event: "session.signup",
         context: {
           secondsSinceEpoch: timestamp,
@@ -324,6 +334,7 @@ describe("events", () => {
     test("signin", () => {
       const event: EventSession = {
         version: "0.1",
+        eventId: "ev-001",
         event: "session.signin",
         context: {
           secondsSinceEpoch: timestamp,
@@ -345,6 +356,7 @@ describe("events", () => {
     test("entered_space", () => {
       const event: EventSession = {
         version: "0.1",
+        eventId: "ev-001",
         event: "session.entered_space",
         context: {
           secondsSinceEpoch: timestamp,
@@ -370,6 +382,7 @@ describe("events", () => {
       test("updated", () => {
         const event: EventLeaderboard = {
           version: "0.1",
+          eventId: "ev-001",
           event: "leaderboard.updated",
           context: {
             spaceId: spaceId,

@@ -13,5 +13,6 @@ export interface Choice extends BaseRecord<"choice"> {
 
 export interface Assessment extends BaseRecord<"assessment"> {
   previousBestCorrect?: number
-  correctCount: number
+  correct: number
+  questions: number
 }

@@ -4,10 +4,14 @@ export interface BaseRecord <T> {
   id: string
 }
 
-export interface BaseEvent <ET, CT, OT, VT> {
+export interface BaseEventNoObj <ET, CT, VT> {
+  eventId: string
   version: VT
   event: ET
   context: CT
+}
+
+export interface BaseEvent <ET, CT, OT, VT> extends BaseEventNoObj<ET, CT, VT> {
   object: OT
 }
 

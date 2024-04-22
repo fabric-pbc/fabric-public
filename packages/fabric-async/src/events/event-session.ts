@@ -1,6 +1,6 @@
 import {
   EventName,
-  BaseEvent,
+  BaseEventNoObj,
 } from "../base"
 
 import {
@@ -9,10 +9,9 @@ import {
 
 export type SessionOperation = "signup" | "signin" | "entered_space"
 
-export interface EventSession extends BaseEvent<
+export interface EventSession extends BaseEventNoObj<
   EventName<"session", SessionOperation>,
   ContextSession,
-  null,
   '0.1'
 > {
 }

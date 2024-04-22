@@ -324,7 +324,6 @@ describe("events", () => {
             userId: externalUserId,
           },
         },
-        object: null,
       }
       logEvent("session", "", "signup", event)
     })
@@ -346,7 +345,6 @@ describe("events", () => {
             userId: externalUserId,
           },
         },
-        object: null,
       }
       logEvent("session", "", "signin", event)
     })
@@ -368,7 +366,6 @@ describe("events", () => {
             userId: externalUserId,
           },
         },
-        object: null,
       }
       logEvent("session", "", "entered_space", event)
     })

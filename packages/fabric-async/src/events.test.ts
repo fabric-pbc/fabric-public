@@ -135,7 +135,6 @@ describe("events", () => {
           },
           object: {
             type: "assessment",
-            id: contentId,
             correct: 3,
             questions: 5,
             previousBestCorrect: 4,
@@ -169,7 +168,6 @@ describe("events", () => {
           },
           object: {
             type: "assessment",
-            id: "content-002",
             previousBestCorrect: 4,
             correct: 5,
             questions: 5,

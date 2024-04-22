@@ -11,7 +11,8 @@ export interface Choice extends BaseRecord<"choice"> {
   selectedOptionId: string
 }
 
-export interface Assessment extends BaseRecord<"assessment"> {
+export interface Assessment {
+  type: "assessment"
   previousBestCorrect?: number
   correct: number
   questions: number

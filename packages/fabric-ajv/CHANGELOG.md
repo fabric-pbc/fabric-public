@@ -1,5 +1,13 @@
 # @fabric-space/fabric-ajv
 
+## 0.1.6
+
+### Patch Changes
+
+- 34bea0e: Add validation support for session and assessment events.
+- Updated dependencies [34bea0e]
+  - @fabric-space/fabric-async@0.1.9
+
 ## 0.1.5
 
 ### Patch Changes

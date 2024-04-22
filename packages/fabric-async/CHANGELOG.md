@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.9
+
+### Patch Changes
+
+- 34bea0e: Refactor assessment and session event models.
+
 ## 0.1.8
 
 ### Patch Changes

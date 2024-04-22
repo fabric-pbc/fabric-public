@@ -10,6 +10,7 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
   type: "object",
   required: [
     "version",
+    "eventId",
     "event",
     "context",
     "object",
@@ -18,6 +19,9 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
     version: {
       type: "string",
       const: "0.1",
+    },
+    eventId: {
+      type: "string",
     },
     event: {
       type: "string",
@@ -237,6 +241,7 @@ export const SchemaEventLeaderboard: JSONSchemaType<EventLeaderboard> = {
   type: "object",
   required: [
     "version",
+    "eventId",
     "event",
     "context",
     "object"
@@ -245,6 +250,9 @@ export const SchemaEventLeaderboard: JSONSchemaType<EventLeaderboard> = {
     version: {
       type: "string",
       const: "0.1",
+    },
+    eventId: {
+      type: "string",
     },
     event: {
       type: "string",
@@ -312,6 +320,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
       type: "object",
       required: [
         "version",
+        "eventId",
         "event",
         "context",
         "object",
@@ -321,6 +330,9 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
           type: "string",
           const: "0.1",
         },
+        eventId: {
+          type: "string",
+        },    
         event: {
           type: "string",
           enum: [
@@ -541,6 +553,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
       type: "object",
       required: [
         "version",
+        "eventId",
         "event",
         "context",
         "object"
@@ -550,6 +563,9 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
           type: "string",
           const: "0.1",
         },
+        eventId: {
+          type: "string",
+        },    
         event: {
           type: "string",
           enum: [

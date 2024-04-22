@@ -38,6 +38,7 @@ describe("events", () => {
 
     const event: EventReward = {
       version: "0.1",
+      eventId: "ev-001",
       event: "reward.provisioned",
       context: {
         secondsSinceEpoch: timestamp,
@@ -88,6 +89,7 @@ describe("events", () => {
   test("leaderboard", () => {
     const event: EventLeaderboard = {
       version: "0.1",
+      eventId: "ev-001",
       event: "leaderboard.updated",
       context: {
         orgId: orgId,

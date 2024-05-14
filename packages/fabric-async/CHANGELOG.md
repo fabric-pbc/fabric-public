@@ -1,5 +1,12 @@
 # @fabric-space/fabric-async
 
+## 0.1.10
+
+### Patch Changes
+
+- 67fd636: Add event for status level milestones.
+- 56ea862: Generalize all events to update a user outcome as the same event name.
+
 ## 0.1.9
 
 ### Patch Changes

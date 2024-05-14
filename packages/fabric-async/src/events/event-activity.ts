@@ -70,8 +70,7 @@ const interactionEvents: EventInteraction['event'][] = [
   'assessment.progress',
   'choice.saved',
   'outcome.assigned',
-  'outcome.claimed',
-  'outcome.revealed',
+  'outcome.updated',
 ]
 
 export function isEventInteraction(ev: ActivityEvent): ev is EventInteraction {

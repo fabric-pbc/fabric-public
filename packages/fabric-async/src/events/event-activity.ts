@@ -1,5 +1,6 @@
 
 import {
+  EventGamify,
   EventLeaderboard,
 } from "./event-gamify"
 
@@ -23,7 +24,7 @@ export type ActivityEvent =
   | EventPurchase
   | EventReward
   | EventSession
-  | EventLeaderboard
+  | EventGamify
   | EventInteraction
 
 

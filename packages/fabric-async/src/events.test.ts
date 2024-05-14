@@ -11,6 +11,7 @@ import {
   EventInteractionOutcome,
   EventInteractionChoice,
   EventInteractionAssessment,
+  EventStatusLevel,
 } from './events'
 
 import {
@@ -395,6 +396,41 @@ describe("events", () => {
         logEvent("gamify", "leaderboard", "updated", event)
       })
     })
+
+    describe("status_level", () => {
+      test("updated", () => {
+        const event: EventStatusLevel = {
+          version: "0.1",
+          eventId: "ev-001",
+          event: "status_level.milestone",
+          context: {
+            spaceId: spaceId,
+            orgId: orgId,
+            secondsSinceEpoch: Date.now(),
+            location,
+            sessionId,
+            userId: fabricUserId,
+            idp: {
+              idpId,
+              userId: externalUserId,
+            },
+          },
+          object: {
+            type: "status_level",
+            id: "status_level_id",
+            order: 2,
+            range: {low: 1, high: 4},
+            name: "Bronze",
+            message: {
+              title: "Congratulations!",
+              description: "This shows great progress!",
+            },
+          }
+        }
+        logEvent("gamify", "status_level", "milestone", event)
+      })
+    })
+
   })
 
 })

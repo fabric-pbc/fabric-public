@@ -5,6 +5,8 @@ import {
   EventInteractionChoice,
   EventInteractionOutcome,
   EventLeaderboard,
+  EventStatusLevel,
+  EventGamify,
   EventReward,
   EventSession,
 } from '@fabric-space/fabric-async'
@@ -315,6 +317,332 @@ export const SchemaEventLeaderboard: JSONSchemaType<EventLeaderboard> = {
       },
     },
   }
+}
+
+export const SchemaEventStatusLevel: JSONSchemaType<EventStatusLevel> = {
+  type: "object",
+  required: [
+    "version",
+    "eventId",
+    "event",
+    "context",
+    "object"
+  ],
+  properties: {
+    version: {
+      type: "string",
+      const: "0.1",
+    },
+    eventId: {
+      type: "string",
+    },
+    event: {
+      type: "string",
+      enum: [
+        "status_level.milestone",
+      ],
+    },
+    context: {
+      type: "object",
+      required: [
+        "userId",
+        "location",
+        "orgId",
+        "sessionId",
+        "spaceId",
+        "secondsSinceEpoch",
+      ],
+      properties: {
+        idp: {
+          nullable: true,
+          type: "object",
+          required: [
+            "idpId",
+            "userId",
+          ],
+          properties: {
+            idpId: {type: "string"},
+            userId: {type: "string"},
+          },
+        },
+        location: {
+          type: "object",
+          required: [
+            "lat",
+            "lng",
+          ],
+          properties: {
+            lat: {type: "number"},
+            lng: {type: "number"},
+          }
+        },
+        orgId: {type: "string"},
+        userId: {type: "string"},
+        sessionId: {type: "string"},
+        spaceId: {type: "string"},
+        secondsSinceEpoch: {type: "integer"},
+      }
+    },
+    object: {
+      type: "object",
+      required: [
+        "type",
+        "id",
+        "name",
+        "order",
+        "range",
+      ],
+      properties: {
+        type: {
+          type: "string",
+          const: "status_level",
+        },
+        id: {
+          type: "string",
+        },
+        name: {
+          type: "string",
+        },
+        order: {
+          type: "integer",
+        },
+        range: {
+          type: "object",
+          required: [
+            "low",
+            "high",
+          ],
+          properties: {
+            low: {
+              type: "number",
+            },
+            high: {
+              type: "number",
+            },
+          },
+        },
+        message: {
+          nullable: true,
+          type: "object",
+          required: [
+            "title",
+            "description",
+          ],
+          properties: {
+            title: {
+              type: "string",
+            },
+            description: {
+              type: "string",
+            },
+          }
+        },
+      },
+    },
+  }
+}
+
+export const SchemaEventGamify: JSONSchemaType<EventGamify> = {
+  oneOf: [
+    // EventLeaderboard
+    {
+      type: "object",
+      required: [
+        "version",
+        "eventId",
+        "event",
+        "context",
+        "object"
+      ],
+      properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
+        eventId: {
+          type: "string",
+        },
+        event: {
+          type: "string",
+          enum: [
+            "leaderboard.updated",
+          ],
+        },
+        context: {
+          type: "object",
+          required: [
+            "orgId",
+            "spaceId",
+            "secondsSinceEpoch",
+          ],
+          properties: {
+            orgId: {
+              type: "string",
+            },
+            spaceId: {
+              type: "string",
+            },
+            secondsSinceEpoch: {
+              type: "integer",
+            },
+          }
+        },
+        object: {
+          type: "object",
+          required: [
+            "leaders",
+          ],
+          properties: {
+            leaders: {
+              type: "array",
+              items: {
+                type: "object",
+                required: [
+                  "metric",
+                  "nameSanitized",
+                  "rank",
+                ],
+                properties: {
+                  nameSanitized: {
+                    type: "string",
+                  },
+                  rank: {
+                    type: "integer",
+                  },
+                  metric: {
+                    type: "number",
+                  },
+                },
+              },
+            },
+          },
+        },
+      }
+    },
+    // EventStatusLevel
+    {
+      type: "object",
+      required: [
+        "version",
+        "eventId",
+        "event",
+        "context",
+        "object"
+      ],
+      properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
+        eventId: {
+          type: "string",
+        },
+        event: {
+          type: "string",
+          enum: [
+            "status_level.milestone",
+          ],
+        },
+        context: {
+          type: "object",
+          required: [
+            "userId",
+            "location",
+            "orgId",
+            "sessionId",
+            "spaceId",
+            "secondsSinceEpoch",
+          ],
+          properties: {
+            idp: {
+              nullable: true,
+              type: "object",
+              required: [
+                "idpId",
+                "userId",
+              ],
+              properties: {
+                idpId: {type: "string"},
+                userId: {type: "string"},
+              },
+            },
+            location: {
+              type: "object",
+              required: [
+                "lat",
+                "lng",
+              ],
+              properties: {
+                lat: {type: "number"},
+                lng: {type: "number"},
+              }
+            },
+            orgId: {type: "string"},
+            userId: {type: "string"},
+            sessionId: {type: "string"},
+            spaceId: {type: "string"},
+            secondsSinceEpoch: {type: "integer"},
+          }
+        },
+        object: {
+          type: "object",
+          required: [
+            "type",
+            "id",
+            "name",
+            "order",
+            "range",
+          ],
+          properties: {
+            type: {
+              type: "string",
+              const: "status_level",
+            },
+            id: {
+              type: "string",
+            },
+            name: {
+              type: "string",
+            },
+            order: {
+              type: "integer",
+            },
+            range: {
+              type: "object",
+              required: [
+                "low",
+                "high",
+              ],
+              properties: {
+                low: {
+                  type: "number",
+                },
+                high: {
+                  type: "number",
+                },
+              },
+            },
+            message: {
+              nullable: true,
+              type: "object",
+              required: [
+                "title",
+                "description",
+              ],
+              properties: {
+                title: {
+                  type: "string",
+                },
+                description: {
+                  type: "string",
+                },
+              }
+            },
+          },
+        },
+      }
+    },
+  ]
 }
 
 export const SchemaEventInteractionOutcome: JSONSchemaType<EventInteractionOutcome> = {
@@ -1377,6 +1705,129 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
                   },
                 },
               },
+            },
+          },
+        },
+      }
+    },
+    // EventStatusLevel
+    {
+      type: "object",
+      required: [
+        "version",
+        "eventId",
+        "event",
+        "context",
+        "object"
+      ],
+      properties: {
+        version: {
+          type: "string",
+          const: "0.1",
+        },
+        eventId: {
+          type: "string",
+        },
+        event: {
+          type: "string",
+          enum: [
+            "status_level.milestone",
+          ],
+        },
+        context: {
+          type: "object",
+          required: [
+            "userId",
+            "location",
+            "orgId",
+            "sessionId",
+            "spaceId",
+            "secondsSinceEpoch",
+          ],
+          properties: {
+            idp: {
+              nullable: true,
+              type: "object",
+              required: [
+                "idpId",
+                "userId",
+              ],
+              properties: {
+                idpId: {type: "string"},
+                userId: {type: "string"},
+              },
+            },
+            location: {
+              type: "object",
+              required: [
+                "lat",
+                "lng",
+              ],
+              properties: {
+                lat: {type: "number"},
+                lng: {type: "number"},
+              }
+            },
+            orgId: {type: "string"},
+            userId: {type: "string"},
+            sessionId: {type: "string"},
+            spaceId: {type: "string"},
+            secondsSinceEpoch: {type: "integer"},
+          }
+        },
+        object: {
+          type: "object",
+          required: [
+            "type",
+            "id",
+            "name",
+            "order",
+            "range",
+          ],
+          properties: {
+            type: {
+              type: "string",
+              const: "status_level",
+            },
+            id: {
+              type: "string",
+            },
+            name: {
+              type: "string",
+            },
+            order: {
+              type: "integer",
+            },
+            range: {
+              type: "object",
+              required: [
+                "low",
+                "high",
+              ],
+              properties: {
+                low: {
+                  type: "number",
+                },
+                high: {
+                  type: "number",
+                },
+              },
+            },
+            message: {
+              nullable: true,
+              type: "object",
+              required: [
+                "title",
+                "description",
+              ],
+              properties: {
+                title: {
+                  type: "string",
+                },
+                description: {
+                  type: "string",
+                },
+              }
             },
           },
         },

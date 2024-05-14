@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest"
-import { EventInteractionAssessment, EventLeaderboard, EventReward, EventSession, LocationInfo } from "@fabric-space/fabric-async"
+import { EventInteractionAssessment, EventLeaderboard, EventReward, EventSession, EventStatusLevel, LocationInfo } from "@fabric-space/fabric-async"
 import Ajv from "ajv"
 import { SchemaActivityEvent } from "./events"
 
@@ -113,30 +113,71 @@ describe("events", () => {
     expect(validator.errors).toBeFalsy()
   })
 
-  test("leaderboard", () => {
-    const event: EventLeaderboard = {
-      version: "0.1",
-      eventId: "ev-001",
-      event: "leaderboard.updated",
-      context: {
-        orgId: orgId,
-        spaceId: spaceId,
-        secondsSinceEpoch: timestamp,
-      },
-      object: {
-        leaders: [
-          {nameSanitized: "Jane D.", rank: 1, metric: 500},
-          {nameSanitized: "John D.", rank: 2, metric: 300},
-        ],
-      },
-    }
+  describe("gamify", () => {
+    test("leaderboard", () => {
+      const event: EventLeaderboard = {
+        version: "0.1",
+        eventId: "ev-001",
+        event: "leaderboard.updated",
+        context: {
+          orgId: orgId,
+          spaceId: spaceId,
+          secondsSinceEpoch: timestamp,
+        },
+        object: {
+          leaders: [
+            {nameSanitized: "Jane D.", rank: 1, metric: 500},
+            {nameSanitized: "John D.", rank: 2, metric: 300},
+          ],
+        },
+      }
+  
+      const serialized = JSON.stringify(event)
+      const deserializezd = JSON.parse(serialized)
+  
+      // const isValid = 
+      validator(deserializezd)
+      expect(validator.errors).toBeFalsy()
+    })
 
-    const serialized = JSON.stringify(event)
-    const deserializezd = JSON.parse(serialized)
+    test("status_level", () => {
+      const event: EventStatusLevel = {
+        version: "0.1",
+        eventId: "ev-001",
+        event: "status_level.milestone",
+        context: {
+          secondsSinceEpoch: timestamp,
+          location: location,
+          orgId: orgId,
+          spaceId: spaceId,
+          sessionId: sessionId,
+          userId: fabricUserId,
+          idp: {
+            idpId: idpId,
+            userId: externalUserId,
+          },
+        },
+        object: {
+          type: "status_level",
+          id: "status_level_id",
+          order: 2,
+          range: {low: 1, high: 4},
+          name: "Bronze",
+          message: {
+            title: "Congratulations!",
+            description: "This shows great progress!",
+          },
+        },
+      }
+  
+      const serialized = JSON.stringify(event)
+      const deserializezd = JSON.parse(serialized)
+  
+      // const isValid = 
+      validator(deserializezd)
+      expect(validator.errors).toBeFalsy()
+    })
 
-    // const isValid = 
-    validator(deserializezd)
-    expect(validator.errors).toBeFalsy()
   })
 
   test("assessment", () => {

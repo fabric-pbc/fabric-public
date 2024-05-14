@@ -14,7 +14,7 @@ import {
   ContextSessionFab,
 } from "../context"
 
-export type OutcomeOperation = "assigned" | "revealed" | "claimed"
+export type OutcomeOperation = "assigned" | "updated"
 export type ChoiceOperation = "saved"
 export type AssessmentOperation = "progress" | "completed"
 
@@ -49,8 +49,7 @@ export type EventInteraction =
 
 const outcomeEvents: EventInteractionOutcome['event'][] = [
   'outcome.assigned',
-  'outcome.claimed',
-  'outcome.revealed',
+  'outcome.updated',
 ]
 
 export function isEventInteractionOutcome(ev: EventInteraction): ev is EventInteractionOutcome {

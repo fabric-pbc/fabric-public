@@ -338,8 +338,7 @@ export const SchemaEventInteractionOutcome: JSONSchemaType<EventInteractionOutco
       type: "string",
       enum: [
         "outcome.assigned",
-        "outcome.claimed",
-        "outcome.revealed",
+        "outcome.updated",
       ],
     },
     context: {
@@ -650,8 +649,7 @@ export const SchemaEventInteraction: JSONSchemaType<EventInteraction> = {
           type: "string",
           enum: [
             "outcome.assigned",
-            "outcome.claimed",
-            "outcome.revealed",
+            "outcome.updated",
           ],
         },
         context: {
@@ -1409,8 +1407,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
               type: "string",
               enum: [
                 "outcome.assigned",
-                "outcome.claimed",
-                "outcome.revealed",
+                "outcome.updated",
               ],
             },
             context: {

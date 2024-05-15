@@ -1,5 +1,13 @@
 # @fabric-space/fabric-ajv
 
+## 0.1.8
+
+### Patch Changes
+
+- 87bc8c1: Add support for scanId in events
+- Updated dependencies [87bc8c1]
+  - @fabric-space/fabric-async@0.1.11
+
 ## 0.1.7
 
 ### Patch Changes

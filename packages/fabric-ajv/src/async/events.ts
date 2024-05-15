@@ -1405,6 +1405,56 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
                 secondsSinceEpoch: {type: "integer"},
               }
             },
+            // ContextSessionScan
+            {
+              type: "object",
+              required: [
+                "userId",
+                "location",
+                "orgId",
+                "sessionId",
+                "spaceId",
+                "secondsSinceEpoch",
+                "journeyId",
+                "scanId",
+                "actionLogId",
+                "action",
+              ],
+              properties: {
+                idp: {
+                  nullable: true,
+                  type: "object",
+                  required: [
+                    "idpId",
+                    "userId",
+                  ],
+                  properties: {
+                    idpId: {type: "string"},
+                    userId: {type: "string"},
+                  },
+                },
+                location: {
+                  type: "object",
+                  required: [
+                    "lat",
+                    "lng",
+                  ],
+                  properties: {
+                    lat: {type: "number"},
+                    lng: {type: "number"},
+                  }
+                },
+                orgId: {type: "string"},
+                userId: {type: "string"},
+                sessionId: {type: "string"},
+                spaceId: {type: "string"},
+                secondsSinceEpoch: {type: "integer"},
+                journeyId: {type: "string"},
+                scanId: {type: "string"},
+                actionLogId: {type: "string"},
+                action: {type: "string"},
+              }
+            },
             // ContextSessionFab
             {
               type: "object",

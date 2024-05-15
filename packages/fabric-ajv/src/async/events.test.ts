@@ -15,6 +15,7 @@ describe("events", () => {
   const orgId = "org-888"
   const productId = "products-567"
   const fabId = "fab-def"
+  const scanId = "scans-id"
   // const journeyId = "journey-abc"
   // const contentId = "content-002"
   // const attemptId = "attempt-003"
@@ -34,56 +35,111 @@ describe("events", () => {
   // one validator to test all Events
   const validator = ajv.compile(SchemaActivityEvent)
 
-  test("reward", () => {
-
-    const event: EventReward = {
-      version: "0.1",
-      eventId: "ev-001",
-      event: "reward.provisioned",
-      context: {
-        secondsSinceEpoch: timestamp,
-        location: location,
-        sessionId: sessionId,
-        spaceId: spaceId,
-        journeyId,
-        fabId: fabId,
-        action,
-        actionLogId: "user-action-2",
-        // TODO: include the identifier for the rule used to determine the reward
-        // ruleId: ruleId,
-        orgId: orgId,
-        userId: fabricUserId,
-        idp: {
-          idpId: idpId,
-          userId: externalUserId,
+  describe("reward", () => {
+    test("fab", () => {
+  
+      const event: EventReward = {
+        version: "0.1",
+        eventId: "ev-001",
+        event: "reward.provisioned",
+        context: {
+          secondsSinceEpoch: timestamp,
+          location: location,
+          sessionId: sessionId,
+          spaceId: spaceId,
+          journeyId,
+          fabId: fabId,
+          action,
+          actionLogId: "user-action-2",
+          // TODO: include the identifier for the rule used to determine the reward
+          // ruleId: ruleId,
+          orgId: orgId,
+          userId: fabricUserId,
+          idp: {
+            idpId: idpId,
+            userId: externalUserId,
+          },
         },
-      },
-      object: [
-        {
-          id: "reward-001",
-          type: "product",
-          productId: productId,
-          inventoryId: "inventory-007",
-        },
-        {
-          id: "reward-002",
-          type: "point",
-          bucketId: bucketId,
-          value: pointsAdded,
-          current: {
-            balance: priorBalance + pointsAdded,
-            experience: priorExperience + pointsAdded,
-          }
-        },
-      ],
-    }
+        object: [
+          {
+            id: "reward-001",
+            type: "product",
+            productId: productId,
+            inventoryId: "inventory-007",
+          },
+          {
+            id: "reward-002",
+            type: "point",
+            bucketId: bucketId,
+            value: pointsAdded,
+            current: {
+              balance: priorBalance + pointsAdded,
+              experience: priorExperience + pointsAdded,
+            }
+          },
+        ],
+      }
+  
+      const serialized = JSON.stringify(event)
+      const deserializezd = JSON.parse(serialized)
+  
+      // const isValid = 
+      validator(deserializezd)
+      expect(validator.errors).toBeFalsy()
+    })
 
-    const serialized = JSON.stringify(event)
-    const deserializezd = JSON.parse(serialized)
+    test("scan", () => {
 
-    // const isValid = 
-    validator(deserializezd)
-    expect(validator.errors).toBeFalsy()
+      const event: EventReward = {
+        version: "0.1",
+        eventId: "ev-001",
+        event: "reward.provisioned",
+        context: {
+          secondsSinceEpoch: timestamp,
+          location: location,
+          sessionId: sessionId,
+          spaceId: spaceId,
+          journeyId,
+          scanId: scanId,
+          action,
+          actionLogId: "user-action-2",
+          // TODO: include the identifier for the rule used to determine the reward
+          // ruleId: ruleId,
+          orgId: orgId,
+          userId: fabricUserId,
+          idp: {
+            idpId: idpId,
+            userId: externalUserId,
+          },
+        },
+        object: [
+          {
+            id: "reward-001",
+            type: "product",
+            productId: productId,
+            inventoryId: "inventory-007",
+          },
+          {
+            id: "reward-002",
+            type: "point",
+            bucketId: bucketId,
+            value: pointsAdded,
+            current: {
+              balance: priorBalance + pointsAdded,
+              experience: priorExperience + pointsAdded,
+            }
+          },
+        ],
+      }
+
+      const serialized = JSON.stringify(event)
+      const deserializezd = JSON.parse(serialized)
+
+      // const isValid = 
+      validator(deserializezd)
+      expect(validator.errors).toBeFalsy()
+    })
+
   })
 
   test("session", () => {

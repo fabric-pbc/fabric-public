@@ -1,7 +1,7 @@
-import { ContextSession, ContextSessionAssessment, ContextSessionFab, LocationInfo } from '@fabric-space/fabric-async'
+import { ContextSession, ContextSessionAssessment, ContextSessionFab, ContextSessionScan, LocationInfo } from '@fabric-space/fabric-async'
 import Ajv from 'ajv'
 import { describe, test, expect } from 'vitest'
-import { SchemaContextSession, SchemaContextSessionAssessment, SchemaContextSessionFab, SchemaContextUserActivity } from './context'
+import { SchemaContextSession, SchemaContextSessionAssessment, SchemaContextSessionFab, SchemaContextSessionScan, SchemaContextUserActivity } from './context'
 
 const ajv = new Ajv({allErrors: true})
 
@@ -13,6 +13,7 @@ describe('context', () => {
   const attemptId = "attemps-001"
   const contentId = "content-001"
   const fabId = "fabs-001"
+  const scanId = "scans-001"
   const journeyId = "journeys-001"
   const spaceId = "spaces-001"
   const orgId = "orgs-001"
@@ -27,6 +28,19 @@ describe('context', () => {
     secondsSinceEpoch: timestamp,
     orgId,
     spaceId,
+    userId,
+    sessionId,
+  }
+
+  const dataScan: ContextSessionScan = {
+    location,
+    secondsSinceEpoch: timestamp,
+    orgId,
+    spaceId,
+    journeyId,
+    scanId,
+    action,
+    actionLogId,
     userId,
     sessionId,
   }
@@ -65,6 +79,19 @@ describe('context', () => {
     test('it works', () => {
 
       const serialized = JSON.stringify(dataSession)
+      const deserialized = JSON.parse(serialized)
+      validator(deserialized)
+      expect(validator.errors).toBeFalsy()
+    })
+
+  })
+
+  describe('SchemaContextSessionScan', () => {
+    const validator = ajv.compile(SchemaContextSessionScan)
+
+    test('it works', () => {
+
+      const serialized = JSON.stringify(dataScan)
       const deserialized = JSON.parse(serialized)
       validator(deserialized)
       expect(validator.errors).toBeFalsy()

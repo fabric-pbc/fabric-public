@@ -31,10 +31,17 @@ export interface ContextSessionJourney extends ContextSession {
   journeyId: string
 }
 
-export interface ContextSessionFab extends ContextSessionJourney {
-  fabId: string
+export interface BaseContextSessionAction extends ContextSessionJourney {
   actionLogId: string
   action: string
+}
+
+export interface ContextSessionFab extends BaseContextSessionAction {
+  fabId: string
+}
+
+export interface ContextSessionScan extends BaseContextSessionAction {
+  scanId: string
 }
 
 export interface ContextSessionAssessment extends ContextSessionFab {
@@ -46,6 +53,7 @@ export type ContextSpaceActivity =
   | ContextSpace
   | ContextSession
   | ContextSessionFab
+  | ContextSessionScan
   | ContextSessionAssessment
 
 
@@ -53,6 +61,10 @@ export type ContextSpaceActivity =
 
 export function isContextSession(ctx: ContextSpaceActivity): ctx is ContextSession {
   return !!(ctx as ContextSession).sessionId
+}
+
+export function isContextSessionScan(ctx: ContextSpaceActivity): ctx is ContextSessionScan {
+  return !!(ctx as ContextSessionScan).scanId
 }
 
 export function isContextSessionFab(ctx: ContextSpaceActivity): ctx is ContextSessionFab {

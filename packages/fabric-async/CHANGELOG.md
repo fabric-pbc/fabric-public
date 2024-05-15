@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.11
+
+### Patch Changes
+
+- 87bc8c1: Add support for scanId in events
+
 ## 0.1.10
 
 ### Patch Changes

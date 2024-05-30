@@ -22,3 +22,10 @@ export type Reward =
   | RewardProduct
   | RewardPoint
 
+export function isRewardProduct(reward: Reward): reward is RewardProduct {
+  return reward.type === 'product'
+}
+
+export function isRewardPoint(reward: Reward): reward is RewardPoint {
+  return reward.type === 'point'
+}

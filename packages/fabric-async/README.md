@@ -11,44 +11,51 @@ npm install @fabric-space/fabric-async
 ```
 
 # Example
-```typescript
-const event: EventReward = {
-  version: "0.1",
-  eventId: "ev-001",
-  event: "reward.provisioned",
-  context: {
-    secondsSinceEpoch: Math.floor(Date.now()/1000),
-    location: { lat: 40.760833, lng: -111.891111, },
-    sessionId: "session-001",
-    spaceId: "space-001",
-    journeyId: "journey-001",
-    fabId: "fab-001",
-    action: "assessment-completed",
-    actionLogId: "user-action-2",
-    orgId: "org-001",
-    userId: "fabric-user-005",
-    idp: {
-      idpId: "idp-001",
-      userId: "external-user-001",
+```json
+{
+  "version": "0.1",
+  "eventId": "ev-001",
+  "event": "reward.provisioned",
+  "context": {
+    "secondsSinceEpoch": 1717109662,
+    "location": {
+      "lat": 40.760833,
+      "lng": -111.891111
     },
+    "sessionId": "session-456",
+    "spaceId": "space-007",
+    "fabId": "fab-def",
+    "actionLogId": "user-action-2",
+    "orgId": "org-888",
+    "userId": "fabric-user-id",
+    "idp": {
+      "idpId": "abc",
+      "userId": "external-user-123"
+    }
   },
-  object: [
+  "object": [
     {
-      id: "reward-001",
-      type: "product",
-      productId: "product-001",
-      inventoryId: "inventory-007",
-    },
-    {
-      id: "reward-002",
-      type: "point",
-      bucketId: "bucket-001",
-      value: 1,
-      current: {
-        balance: 51,
-        experience: 101,
+      "id": "reward-001",
+      "type": "product",
+      "product": {
+        "id": "products-567",
+        "name": "jersey"
+      },
+      "userInventory": {
+        "id": "inventory-007",
+        "quantity": 1
       }
     },
-  ],
+    {
+      "id": "reward-002",
+      "type": "point",
+      "bucketId": "gamify-bucket-003",
+      "value": 5,
+      "current": {
+        "balance": 55,
+        "experience": 105
+      }
+    }
+  ]
 }
 ```

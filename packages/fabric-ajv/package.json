@@ -1,6 +1,6 @@
 {
   "name": "@fabric-space/fabric-ajv",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Ajv schema for fabric types",
   "main": "dist/index.js",
   "devDependencies": {
@@ -31,7 +31,7 @@
     "dist"
   ],
   "dependencies": {
-    "@fabric-space/fabric-async": "^0.1.11",
+    "@fabric-space/fabric-async": "^0.1.13",
     "ajv": "^8.12.0"
   }
 }

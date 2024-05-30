@@ -1,5 +1,13 @@
 # @fabric-space/fabric-ajv
 
+## 0.1.9
+
+### Patch Changes
+
+- 790b0ec: change reward activity model to include descriptive values
+- Updated dependencies [790b0ec]
+  - @fabric-space/fabric-async@0.1.13
+
 ## 0.1.8
 
 ### Patch Changes

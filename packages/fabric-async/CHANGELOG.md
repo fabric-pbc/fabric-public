@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.12
+
+### Patch Changes
+
+- be11576: Add type guard for reward activity model
+
 ## 0.1.11
 
 ### Patch Changes

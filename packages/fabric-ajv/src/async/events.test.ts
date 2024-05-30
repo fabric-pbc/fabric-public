@@ -14,6 +14,7 @@ describe("events", () => {
   const spaceId = "space-007"
   const orgId = "org-888"
   const productId = "products-567"
+  const productName = "jersey"
   const fabId = "fab-def"
   const scanId = "scans-id"
   // const journeyId = "journey-abc"
@@ -64,8 +65,14 @@ describe("events", () => {
           {
             id: "reward-001",
             type: "product",
-            productId: productId,
-            inventoryId: "inventory-007",
+            product: {
+              id: productId,
+              name: productName,
+            },
+            userInventory: {
+              id: "inventory-007",
+              quantity: 1,
+            },
           },
           {
             id: "reward-002",
@@ -116,8 +123,14 @@ describe("events", () => {
           {
             id: "reward-001",
             type: "product",
-            productId: productId,
-            inventoryId: "inventory-007",
+            product: {
+              id: productId,
+              name: productName,
+            },
+            userInventory: {
+              id: "inventory-007",
+              quantity: 1,
+            },
           },
           {
             id: "reward-002",

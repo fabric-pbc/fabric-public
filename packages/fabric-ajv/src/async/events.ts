@@ -196,14 +196,38 @@ export const SchemaEventReward: JSONSchemaType<EventReward> = {
             type: "object",
             required: [
               "id",
-              "inventoryId",
-              "productId",
+              "userInventory",
+              "product",
               "type",
             ],
             properties: {
               id: {type: "string"},
-              inventoryId: {type: "string"},
-              productId: {type: "string"},
+              userInventory: {
+                type: "object",
+                required: [
+                  "id",
+                  "quantity",
+                ],
+                properties: {
+                  id: {type: "string"},
+                  quantity: {type: "integer"},
+                },
+              },
+              product: {
+                type: "object",
+                required: [
+                  "id",
+                  "name",
+                ],
+                properties: {
+                  id: {type: "string"},
+                  name: {type: "string"},
+                  description: {
+                    nullable: true,
+                    type: "string",
+                  },
+                }
+              },
               type: {
                 type: "string",
                 const: "product",
@@ -1353,7 +1377,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
         },
         eventId: {
           type: "string",
-        },    
+        },
         event: {
           type: "string",
           enum: [
@@ -1403,56 +1427,6 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
                 sessionId: {type: "string"},
                 spaceId: {type: "string"},
                 secondsSinceEpoch: {type: "integer"},
-              }
-            },
-            // ContextSessionScan
-            {
-              type: "object",
-              required: [
-                "userId",
-                "location",
-                "orgId",
-                "sessionId",
-                "spaceId",
-                "secondsSinceEpoch",
-                "journeyId",
-                "scanId",
-                "actionLogId",
-                "action",
-              ],
-              properties: {
-                idp: {
-                  nullable: true,
-                  type: "object",
-                  required: [
-                    "idpId",
-                    "userId",
-                  ],
-                  properties: {
-                    idpId: {type: "string"},
-                    userId: {type: "string"},
-                  },
-                },
-                location: {
-                  type: "object",
-                  required: [
-                    "lat",
-                    "lng",
-                  ],
-                  properties: {
-                    lat: {type: "number"},
-                    lng: {type: "number"},
-                  }
-                },
-                orgId: {type: "string"},
-                userId: {type: "string"},
-                sessionId: {type: "string"},
-                spaceId: {type: "string"},
-                secondsSinceEpoch: {type: "integer"},
-                journeyId: {type: "string"},
-                scanId: {type: "string"},
-                actionLogId: {type: "string"},
-                action: {type: "string"},
               }
             },
             // ContextSessionFab
@@ -1570,14 +1544,38 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
                 type: "object",
                 required: [
                   "id",
-                  "inventoryId",
-                  "productId",
+                  "userInventory",
+                  "product",
                   "type",
                 ],
                 properties: {
                   id: {type: "string"},
-                  inventoryId: {type: "string"},
-                  productId: {type: "string"},
+                  userInventory: {
+                    type: "object",
+                    required: [
+                      "id",
+                      "quantity",
+                    ],
+                    properties: {
+                      id: {type: "string"},
+                      quantity: {type: "integer"},
+                    },
+                  },
+                  product: {
+                    type: "object",
+                    required: [
+                      "id",
+                      "name",
+                    ],
+                    properties: {
+                      id: {type: "string"},
+                      name: {type: "string"},
+                      description: {
+                        nullable: true,
+                        type: "string",
+                      },
+                    }
+                  },
                   type: {
                     type: "string",
                     const: "product",
@@ -1616,7 +1614,7 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
           },      
         }
       }
-    },
+    },    
     // EventSession
     {
       type: "object",

@@ -16,14 +16,38 @@ export const SchemaRewardProduct: JSONSchemaType<RewardProduct> = {
   type: "object",
   required: [
     "id",
-    "inventoryId",
-    "productId",
+    "userInventory",
+    "product",
     "type",
   ],
   properties: {
     id: {type: "string"},
-    inventoryId: {type: "string"},
-    productId: {type: "string"},
+    userInventory: {
+      type: "object",
+      required: [
+        "id",
+        "quantity",
+      ],
+      properties: {
+        id: {type: "string"},
+        quantity: {type: "integer"},
+      },
+    },
+    product: {
+      type: "object",
+      required: [
+        "id",
+        "name",
+      ],
+      properties: {
+        id: {type: "string"},
+        name: {type: "string"},
+        description: {
+          nullable: true,
+          type: "string",
+        },
+      }
+    },
     type: {
       type: "string",
       const: "product",
@@ -66,14 +90,38 @@ export const SchemaReward: JSONSchemaType<Reward> = {
       type: "object",
       required: [
         "id",
-        "inventoryId",
-        "productId",
+        "userInventory",
+        "product",
         "type",
       ],
       properties: {
         id: {type: "string"},
-        inventoryId: {type: "string"},
-        productId: {type: "string"},
+        userInventory: {
+          type: "object",
+          required: [
+            "id",
+            "quantity",
+          ],
+          properties: {
+            id: {type: "string"},
+            quantity: {type: "integer"},
+          },
+        },
+        product: {
+          type: "object",
+          required: [
+            "id",
+            "name",
+          ],
+          properties: {
+            id: {type: "string"},
+            name: {type: "string"},
+            description: {
+              nullable: true,
+              type: "string",
+            },
+          }
+        },
         type: {
           type: "string",
           const: "product",

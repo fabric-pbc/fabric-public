@@ -3,8 +3,15 @@ import {
 } from "../base"
 
 export interface RewardProduct extends BaseRecord<"product"> {
-  productId: string
-  inventoryId: string
+  userInventory: {
+    id: string
+    quantity: number
+  }
+  product: {
+    id: string
+    name: string
+    description?: string
+  }
 }
 
 export interface PointStatus {

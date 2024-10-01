@@ -15,6 +15,7 @@ import {
 
 export type LeaderboardOperation = "updated"
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface EventLeaderboard extends BaseEvent<
   EventName<"leaderboard", LeaderboardOperation>,
   ContextSpace,
@@ -24,6 +25,7 @@ export interface EventLeaderboard extends BaseEvent<
 
 export type StatusLevelOperation = "milestone"
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface EventStatusLevel extends BaseEvent<
   EventName<"status_level", StatusLevelOperation>,
   ContextSession,

@@ -438,10 +438,16 @@ export const SchemaEventStatusLevel: JSONSchemaType<EventStatusLevel> = {
           ],
           properties: {
             low: {
-              type: "number",
+              oneOf: [
+                {type: "number"},
+                {type: "string"},
+              ]
             },
             high: {
-              type: "number",
+              oneOf: [
+                {type: "number"},
+                {type: "string"},
+              ]
             },
           },
         },
@@ -1854,10 +1860,16 @@ export const SchemaActivityEvent: JSONSchemaType<ActivityEvent> = {
               ],
               properties: {
                 low: {
-                  type: "number",
+                  oneOf: [
+                    {type: "number"},
+                    {type: "string"},
+                  ]
                 },
                 high: {
-                  type: "number",
+                  oneOf: [
+                    {type: "number"},
+                    {type: "string"},
+                  ]
                 },
               },
             },

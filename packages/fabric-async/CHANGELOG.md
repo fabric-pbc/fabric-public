@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.1.14
+
+### Patch Changes
+
+- e87d0a1: Allow string values for range boundaries
+
 ## 0.1.13
 
 ### Patch Changes

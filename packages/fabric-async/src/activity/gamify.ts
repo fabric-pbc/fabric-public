@@ -11,8 +11,8 @@ export interface Leaderboard {
 }
 
 export interface PointsRange {
-  low: number
-  high: number
+  low: number | string
+  high: number | string
 }
 
 export interface StatusLevel extends BaseRecord<"status_level"> {

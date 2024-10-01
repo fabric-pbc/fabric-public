@@ -4,13 +4,14 @@
   "description": "Ajv schema for fabric types",
   "main": "dist/index.js",
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.6",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.14.3",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.9",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.5.0"
+    "@rollup/plugin-typescript": "^12.1.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.22.5",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vite-plugin-checker": "^0.8.0",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.1.1"
   },
   "scripts": {
     "test": "npm run test:unit",
@@ -32,6 +33,6 @@
   ],
   "dependencies": {
     "@fabric-space/fabric-async": "^0.1.14",
-    "ajv": "^8.12.0"
+    "ajv": "^8.17.1"
   }
 }

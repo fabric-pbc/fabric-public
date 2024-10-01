@@ -13,6 +13,7 @@ import {
 
 export type RewardOperation = "provisioned" | "fulfilled"
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface EventReward extends BaseEvent<
   EventName<"reward", RewardOperation>,
   ContextSpaceActivity,

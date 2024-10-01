@@ -18,6 +18,7 @@ export type OutcomeOperation = "assigned" | "updated"
 export type ChoiceOperation = "saved"
 export type AssessmentOperation = "progress" | "completed"
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface EventInteractionOutcome extends BaseEvent<
   EventName<Outcome['type'], OutcomeOperation>,
   ContextSessionFab,
@@ -25,6 +26,7 @@ export interface EventInteractionOutcome extends BaseEvent<
   '0.1'
 > {}
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface EventInteractionChoice extends BaseEvent<
   EventName<Choice['type'], ChoiceOperation>,
   ContextSessionFab,
@@ -32,6 +34,7 @@ export interface EventInteractionChoice extends BaseEvent<
   '0.1'
 > {}
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface EventInteractionAssessment extends BaseEvent<
   EventName<Assessment['type'], AssessmentOperation>,
   ContextSessionAssessment,

@@ -9,6 +9,7 @@ import {
 
 export type SessionOperation = "signup" | "signin" | "entered_space"
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface EventSession extends BaseEventNoObj<
   EventName<"session", SessionOperation>,
   ContextSession,

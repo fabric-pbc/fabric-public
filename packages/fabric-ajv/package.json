@@ -32,6 +32,6 @@
   ],
   "dependencies": {
     "@fabric-space/fabric-async": "^0.1.14",
-    "ajv": "^8.12.0"
+    "ajv": "^8.17.1"
   }
 }

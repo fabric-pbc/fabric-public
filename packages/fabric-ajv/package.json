@@ -4,9 +4,9 @@
   "description": "Ajv schema for fabric types",
   "main": "dist/index.js",
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-typescript": "^12.1.0",
     "rimraf": "^5.0.5",
-    "rollup": "^4.14.3",
+    "rollup": "^4.22.5",
     "typescript": "^5.4.5",
     "vite": "^5.2.9",
     "vite-tsconfig-paths": "^4.3.2",

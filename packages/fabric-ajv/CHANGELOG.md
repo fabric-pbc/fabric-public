@@ -1,5 +1,13 @@
 # @fabric-space/fabric-ajv
 
+## 0.1.10
+
+### Patch Changes
+
+- e87d0a1: Allow string values for range boundaries
+- Updated dependencies [e87d0a1]
+  - @fabric-space/fabric-async@0.1.14
+
 ## 0.1.9
 
 ### Patch Changes

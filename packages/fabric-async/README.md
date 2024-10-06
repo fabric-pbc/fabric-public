@@ -10,6 +10,9 @@ This package is not expected to be consumed by production teams yet.
 npm install @fabric-space/fabric-async
 ```
 
+# Documentation
+See the [generated documentation](https://fabric-pbc.github.io/fabric-public/).
+
 # Example
 ```json
 {

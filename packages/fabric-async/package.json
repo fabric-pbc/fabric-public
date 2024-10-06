@@ -5,6 +5,8 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
+    "docs": "typedoc --out ../../typedoc src",
+    "serve-docs": "http-server ../../typedoc",
     "build": "rollup -c",
     "clean": "rimraf dist",
     "test": "vitest"
@@ -18,8 +20,10 @@
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "^12.1.0",
+    "http-server": "^14.1.1",
     "rimraf": "^6.0.1",
     "rollup": "^4.22.5",
+    "typedoc": "^0.26.8",
     "typescript": "^5.6.2",
     "vite": "^5.4.8",
     "vite-plugin-checker": "^0.8.0",

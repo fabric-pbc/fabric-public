@@ -22,7 +22,7 @@ export interface SpaceEvent {
 }
 
 export interface GeospatialEvent extends SpaceEvent {
-  location?: LocationInfo
+  location?: LocationInfo | null
 }
 
 export type ContextSpace = SpaceEvent

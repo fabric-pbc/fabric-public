@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.2.0
+
+### Minor Changes
+
+- fd65c04: Remove "interaction" interfaces and schema and add "attempt" interfaces and schema.
+
 ## 0.1.14
 
 ### Patch Changes

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+
 import {
   BaseRecord,
 } from "../base"
@@ -11,12 +13,13 @@ export interface BasePurchase <T> extends BaseRecord<T> {
   items: PurchaseLineItem[]
 }
 
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface PurchaseMoney extends BasePurchase<"money"> {}
 
-/* eslint-disable @typescript-eslint/no-empty-object-type */
-export interface PurchasePoints extends BasePurchase<"points"> {}
+// export interface PurchasePoints extends BasePurchase<"points"> {}
+
+export interface PurchaseGift extends BasePurchase<"gift"> {}
 
 export type Purchase =
   | PurchaseMoney
-  | PurchasePoints
+  | PurchaseGift
+  // | PurchasePoints

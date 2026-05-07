@@ -23,12 +23,12 @@ export interface EventAttempt extends BaseEvent<
 
 // type guards
 
-const interactionEvents: EventAttempt['event'][] = [
+const attemptEvents: EventAttempt['event'][] = [
   'attempt.progress',
   'attempt.completed',
   'attempt.updated',
 ]
 
 export function isAttemptEvent(ev: {event: string}): ev is EventAttempt {
-  return interactionEvents.includes(ev.event as EventAttempt['event'])
+  return attemptEvents.includes(ev.event as EventAttempt['event'])
 }

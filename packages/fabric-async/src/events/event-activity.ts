@@ -5,8 +5,8 @@ import {
 } from "./event-gamify"
 
 import {
-  EventInteraction,
-} from "./event-interaction"
+  EventAttempt,
+} from "./event-attempt"
 
 import {
   EventPurchase,
@@ -25,7 +25,7 @@ export type ActivityEvent =
   | EventReward
   | EventSession
   | EventGamify
-  | EventInteraction
+  | EventAttempt
 
 
 // type guards
@@ -66,14 +66,12 @@ export function isEventLeaderboard(ev: ActivityEvent): ev is EventLeaderboard {
   return leaderboardEvents.includes(ev.event as EventLeaderboard['event'])
 }
 
-const interactionEvents: EventInteraction['event'][] = [
-  'assessment.completed',
-  'assessment.progress',
-  'choice.saved',
-  'outcome.assigned',
-  'outcome.updated',
+const attemptEvents: EventAttempt['event'][] = [
+  'attempt.completed',
+  'attempt.progress',
+  'attempt.updated',
 ]
 
-export function isEventInteraction(ev: ActivityEvent): ev is EventInteraction {
-  return interactionEvents.includes(ev.event as EventInteraction['event'])
+export function isEventAttempt(ev: ActivityEvent): ev is EventAttempt {
+  return attemptEvents.includes(ev.event as EventAttempt['event'])
 }

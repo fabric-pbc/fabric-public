@@ -4,6 +4,12 @@ export interface IdP {
   userId: string
 }
 
+import {
+  Assessment,
+  Choice,
+  Outcome,
+} from "./activity"
+
 export interface LocationInfo {
   lat: number
   lng: number
@@ -16,7 +22,7 @@ export interface SpaceEvent {
 }
 
 export interface GeospatialEvent extends SpaceEvent {
-  location: LocationInfo
+  location?: LocationInfo | null
 }
 
 export type ContextSpace = SpaceEvent
@@ -49,12 +55,34 @@ export interface ContextSessionAssessment extends ContextSessionFab {
   contentId: string
 }
 
+export interface ContextAttemptFab {
+  id: string
+  name: string
+  projectId?: string
+  contentSetId: string
+}
+
+export interface ContextAttemptUser {
+  id: string
+  idp?: IdP
+}
+
+export interface ContextAttempt extends ContextSessionAssessment {
+  completed?: boolean
+  user: ContextAttemptUser
+  fab?: ContextAttemptFab
+  assessments?: Assessment[]
+  choices?: Choice[]
+  outcomes?: Outcome[]
+}
+
 export type ContextSpaceActivity =
   | ContextSpace
   | ContextSession
   | ContextSessionFab
   | ContextSessionScan
   | ContextSessionAssessment
+  | ContextAttempt
 
 
 // type guards
@@ -73,4 +101,8 @@ export function isContextSessionFab(ctx: ContextSpaceActivity): ctx is ContextSe
 
 export function isContextSessionAssessment(ctx: ContextSpaceActivity): ctx is ContextSessionAssessment {
   return !!(ctx as ContextSessionAssessment).contentId
+}
+
+export function isContextAttempt(ctx: ContextSpaceActivity): ctx is ContextAttempt {
+  return !!(ctx as ContextAttempt).user && !!(ctx as ContextAttempt).user.id
 }

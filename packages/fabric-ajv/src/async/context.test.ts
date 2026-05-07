@@ -1,7 +1,7 @@
-import { ContextSession, ContextSessionAssessment, ContextSessionFab, ContextSessionScan, LocationInfo } from '@fabric-space/fabric-async'
+import { ContextAttempt, ContextSession, ContextSessionAssessment, ContextSessionFab, ContextSessionScan, LocationInfo } from '@fabric-space/fabric-async'
 import Ajv from 'ajv'
 import { describe, test, expect } from 'vitest'
-import { SchemaContextSession, SchemaContextSessionAssessment, SchemaContextSessionFab, SchemaContextSessionScan, SchemaContextUserActivity } from './context'
+import { SchemaContextAttempt, SchemaContextSession, SchemaContextSessionAssessment, SchemaContextSessionFab, SchemaContextSessionScan, SchemaContextUserActivity } from './context'
 
 const ajv = new Ajv({allErrors: true})
 
@@ -73,6 +73,19 @@ describe('context', () => {
     attemptId,
   }
 
+  const dataAttempt: ContextAttempt = {
+    ...dataAssessment,
+    completed: true,
+    user: {
+      id: userId,
+    },
+    fab: {
+      id: fabId,
+      name: "Trivia Fab",
+      contentSetId: contentId,
+    },
+  }
+
   describe('SchemaContextSession', () => {
     const validator = ajv.compile(SchemaContextSession)
 
@@ -124,6 +137,18 @@ describe('context', () => {
     })
   })
 
+  describe('SchemaContextAttempt', () => {
+    const validator = ajv.compile(SchemaContextAttempt)
+
+    test('it works', () => {
+
+      const serialized = JSON.stringify(dataAttempt)
+      const deserialized = JSON.parse(serialized)
+      validator(deserialized)
+      expect(validator.errors).toBeFalsy()
+    })
+  })
+
   describe('SchemaContextUserActivity', () => {
     const validator = ajv.compile(SchemaContextUserActivity)
 
@@ -143,6 +168,13 @@ describe('context', () => {
 
     test('it works for assessment', () => {
       const serialized = JSON.stringify(dataAssessment)
+      const deserialized = JSON.parse(serialized)
+      validator(deserialized)
+      expect(validator.errors).toBeFalsy()
+    })
+
+    test('it works for attempt', () => {
+      const serialized = JSON.stringify(dataAttempt)
       const deserialized = JSON.parse(serialized)
       validator(deserialized)
       expect(validator.errors).toBeFalsy()

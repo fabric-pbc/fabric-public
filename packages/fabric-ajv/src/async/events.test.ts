@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest"
-import { EventInteractionAssessment, EventLeaderboard, EventReward, EventSession, EventStatusLevel, LocationInfo } from "@fabric-space/fabric-async"
+import { EventAttempt, EventLeaderboard, EventReward, EventSession, EventStatusLevel, LocationInfo } from "@fabric-space/fabric-async"
 import Ajv from "ajv"
 import { SchemaActivityEvent } from "./events"
 
@@ -19,7 +19,7 @@ describe("events", () => {
   const scanId = "scans-id"
   // const journeyId = "journey-abc"
   // const contentId = "content-002"
-  // const attemptId = "attempt-003"
+  const attemptId = "attempt-003"
   // const questionId = "questions-x"
   // const selectedOptionId = "options-y"
   const location: LocationInfo = {
@@ -250,16 +250,16 @@ describe("events", () => {
   })
 
   test("assessment", () => {
-    const event: EventInteractionAssessment = {
+    const event: EventAttempt = {
       version: "0.1",
       eventId: "ev-001",
-      event: "assessment.completed",
+      event: "attempt.completed",
       context: {
         orgId: orgId,
         spaceId: spaceId,
         journeyId: journeyId,
         fabId: fabId,
-        attemptId: "",
+        attemptId,
         contentId: "content-001",
         action: "choice-saved",
         actionLogId: "actions-001",
@@ -267,12 +267,36 @@ describe("events", () => {
         userId: fabricUserId,
         location: location,
         secondsSinceEpoch: timestamp,
+        completed: true,
+        user: {
+          id: fabricUserId,
+        },
+        assessments: [
+          {
+            type: "assessment",
+            previousBestCorrect: 4,
+            correct: 5,
+            questions: 5,
+          },
+        ],
       },
       object: {
-        type: "assessment",
-        previousBestCorrect: 4,
-        correct: 5,
-        questions: 5,
+        id: attemptId,
+        type: "user_attempt",
+        sideEffects: {
+          pointsCredits: [
+            {
+              id: "points-credit-001",
+              type: "point",
+              bucketId: "bucket-001",
+              value: 100,
+              current: {
+                balance: 125,
+                experience: 125,
+              },
+            },
+          ],
+        },
       }
     }
 

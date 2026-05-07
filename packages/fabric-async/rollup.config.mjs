@@ -2,7 +2,7 @@
  * @type {import('rollup').RollupOptions}
  */
 import typescript from "@rollup/plugin-typescript";
-import packageJson from "./package.json" assert { type: "json" };
+import packageJson from "./package.json" with { type: "json" };
 import { makeConfig, makeOutputLibraryESM } from '../../rollup.lib.config.mjs'
 
 const output = [

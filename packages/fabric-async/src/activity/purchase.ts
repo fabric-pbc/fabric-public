@@ -15,11 +15,8 @@ export interface BasePurchase <T> extends BaseRecord<T> {
 
 export interface PurchaseMoney extends BasePurchase<"money"> {}
 
-// export interface PurchasePoints extends BasePurchase<"points"> {}
-
 export interface PurchaseGift extends BasePurchase<"gift"> {}
 
 export type Purchase =
   | PurchaseMoney
   | PurchaseGift
-  // | PurchasePoints

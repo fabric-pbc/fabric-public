@@ -4,7 +4,7 @@
   "description": "Public packages for the Fabric platform",
   "type": "module",
   "engines": {
-    "node": ">= 20",
+    "node": ">= 22",
     "npm": ">= 10"
   },
   "scripts": {

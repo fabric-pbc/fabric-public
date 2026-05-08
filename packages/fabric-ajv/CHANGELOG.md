@@ -1,5 +1,13 @@
 # @fabric-space/fabric-ajv
 
+## 0.2.1
+
+### Patch Changes
+
+- a323ff9: Migrate to a "trusted publisher" workflow with npmjs.org
+- Updated dependencies [a323ff9]
+  - @fabric-space/fabric-async@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes

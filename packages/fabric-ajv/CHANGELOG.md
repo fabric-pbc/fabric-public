@@ -1,5 +1,15 @@
 # @fabric-space/fabric-ajv
 
+## 0.2.3
+
+### Patch Changes
+
+- 3ad60f0: Use Node 24 in GitHub Actions workflows for trusted publishing compatibility.
+- 208425a: Upgrade workflow npm versions to support npm trusted publishing.
+- Updated dependencies [3ad60f0]
+- Updated dependencies [208425a]
+  - @fabric-space/fabric-async@0.2.3
+
 ## 0.2.2
 
 ### Patch Changes

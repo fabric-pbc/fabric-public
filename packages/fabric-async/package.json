@@ -16,6 +16,10 @@
     "async",
     "messages"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabric-pbc/fabric-public.git"
+  },
   "author": "cyrfer",
   "license": "MIT",
   "devDependencies": {

@@ -26,6 +26,10 @@
     "ajv",
     "schema"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabric-pbc/fabric-public.git"
+  },
   "author": "cyrfer",
   "license": "MIT",
   "types": "dist/index.d.ts",

@@ -1,5 +1,11 @@
 # @fabric-space/fabric-async
 
+## 0.2.2
+
+### Patch Changes
+
+- 51b4b29: add repo info to package file to help NPM release succeed.
+
 ## 0.2.1
 
 ### Patch Changes
